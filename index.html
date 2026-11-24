@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Matan Avitan</title>
+  <meta name="description" content="Matan Avitan studies how language models represent information, how they use it to make predictions, and what happens when we edit their internal representations.">
+  <link rel="canonical" href="https://matanavitan.github.io/personal_website/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Matan Avitan">
+  <meta property="og:description" content="AI researcher and computer science PhD candidate at Bar-Ilan University.">
+  <meta property="og:url" content="https://matanavitan.github.io/personal_website/">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="intro">
+    <h1>Matan Avitan</h1>
+    <p class="tagline">AI researcher and computer science PhD candidate at <span class="nowrap">Bar-Ilan University</span></p>
+    <p class="lead">I study how language models represent information, how they use it to make predictions, and what happens when we edit their internal representations.</p>
+    <ul class="profiles">
+      <li><a href="mailto:matan13av@gmail.com">Email</a></li>
+      <li><a href="https://scholar.google.com/citations?user=C7-1ULIAAAAJ">Google Scholar</a></li>
+      <li><a href="https://github.com/MatanAvitan">GitHub</a></li>
+      <li><a href="https://www.linkedin.com/in/matanavitan/">LinkedIn</a></li>
+      <li><a href="https://x.com/matan_avitan_">X</a></li>
+    </ul>
+  </header>
+
+  <main>
+    <section id="about" aria-labelledby="about-h">
+      <h2 id="about-h">About</h2>
+      <p>I’m a PhD candidate in the NLP Lab at <span class="nowrap">Bar-Ilan University</span>, advised by Prof. Yoav Goldberg and Dr. Yanai Elazar. My research combines mechanistic interpretability, representation geometry, and causal interventions. I’m drawn to problems where a mathematical explanation of a model’s behavior makes a prediction I can test by changing its activations.</p>
+      <p>I also work at Cato Networks. Previously, I was an AI Research Scientist at IBM Research, where I developed algorithms for generating text over encrypted data. My background also includes building production ML systems for search analytics at Similarweb and malware detection at Cynet Security.</p>
+    </section>
+
+    <section id="publications" aria-labelledby="publications-h">
+      <h2 id="publications-h">Publications</h2>
+      <ol class="pubs">
+        <li>
+          <p class="pub-title">MANCE: Manifold-Aware Concept Erasure</p>
+          <p class="pub-authors"><span class="me">Matan Avitan</span>, Yoav Goldberg, Yanai Elazar</p>
+          <p class="pub-meta"><span class="venue">NeurIPS 2026</span></p>
+          <p class="pub-desc">Can we erase a concept from a model’s representation while preserving other information encoded alongside it? MANCE estimates the local geometry of naturally occurring activations and uses it to constrain each edit. Across 119 settings in language and vision, these constraints improved the trade-off between removing the target concept and preserving other attributes.</p>
+          <ul class="pub-links">
+            <li><a href="https://arxiv.org/abs/2607.03973">Paper</a></li>
+            <li><a href="https://github.com/MatanAvitan/mance">Code</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="pub-title">Position Without Positional Embeddings: A Directional Mechanism in NoPE Transformers</p>
+          <p class="pub-authors"><span class="me">Matan Avitan</span>, Ido Nachum, Yanai Elazar, Yoav Goldberg</p>
+          <p class="pub-meta"><span class="venue">NeurIPS 2026</span></p>
+          <p class="pub-desc">How does a Transformer know whether a token is the fifth or the fiftieth without positional embeddings? We identify a two-block circuit that uses the beginning-of-sequence token as a shared reference. Attention to that token falls predictably as the prefix grows, approximately as <span class="math"><i>k</i>/(<i>k</i>&#8202;+&#8202;<i>i</i>)</span>. The circuit writes that signal into an activation direction that survives LayerNorm. We find the mechanism in trained models, including a language model trained on next-token prediction.</p>
+          <ul class="pub-links">
+            <li><a href="https://neurips.cc/virtual/2026/poster/152488">NeurIPS page</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="pub-title">PowerSoftmax: Towards Secure LLM Inference Over Encrypted Data</p>
+          <p class="pub-authors">Itamar Zimerman, Allon Adir, Ehud Aharoni, <span class="me">Matan Avitan</span>, Moran Baruch, Nir Drucker, Jenny Lerner, Ramy Masalha, Reut Moshe, Omri Soceanu</p>
+          <p class="pub-meta"><span class="venue">AISTATS 2026</span></p>
+          <p class="pub-desc">We develop a self-attention mechanism that polynomials can approximate efficiently, which makes homomorphic inference practical. We use it to train language models with over a billion parameters. We presented an earlier version of this work at FHE.org 2025.</p>
+          <ul class="pub-links">
+            <li><a href="https://proceedings.mlr.press/v300/zimerman26a.html">Paper</a></li>
+            <li><a href="https://research.ibm.com/publications/powersoftmax-towards-secure-llm-inference-over-fhe">FHE.org presentation entry</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="pub-title">Efficient Decoding Methods for Language Models on Encrypted Data</p>
+          <p class="pub-authors"><span class="me">Matan Avitan</span>, Moran Baruch, Nir Drucker, Itamar Zimerman, Yoav Goldberg</p>
+          <p class="pub-meta"><span class="venue">Findings of ACL, IJCNLP-AACL 2025</span></p>
+          <p class="pub-desc">We introduce CutMax, an argmax algorithm for greedy decoding under homomorphic encryption, and a compatible nucleus sampling method for stochastic decoding. On realistic language-model outputs, the methods achieved speedups of 24× to 35× over the baselines we tested.</p>
+          <ul class="pub-links">
+            <li><a href="https://aclanthology.org/2025.findings-ijcnlp.111/">Paper</a></li>
+          </ul>
+        </li>
+        <li>
+          <p class="pub-title">A Practical Method for Generating String Counterfactuals</p>
+          <p class="pub-authors"><span class="me">Matan Avitan</span>, Ryan Cotterell, Yoav Goldberg, Shauli Ravfogel</p>
+          <p class="pub-meta"><span class="venue">Findings of ACL, NAACL 2025</span></p>
+          <p class="pub-desc">When we edit a model’s representation of a biography, what changes in the text? We turn edited representations back into readable counterfactuals, making it possible to inspect how an intervention changes the wording. We also use the resulting examples as training data to reduce gender bias in occupation classification.</p>
+          <ul class="pub-links">
+            <li><a href="https://aclanthology.org/2025.findings-naacl.180/">Paper</a></li>
+            <li><a href="https://github.com/MatanAvitan/rep-to-string-counterfactuals">Code</a></li>
+          </ul>
+        </li>
+      </ol>
+    </section>
+
+    <section id="interests" aria-labelledby="interests-h">
+      <h2 id="interests-h">Research interests</h2>
+      <dl class="questions">
+        <dt>Superposition and sparse feature learning</dt>
+        <dd>How do models encode more features than they have activation dimensions? I’m interested in using sparse autoencoders and dictionary learning to study how features share directions and how an edit to one feature affects others.</dd>
+        <dt>How training shapes learned mechanisms</dt>
+        <dd>I’m interested in when a circuit emerges, how the objective and initialization affect it, and whether the model relies on it when making predictions.</dd>
+        <dt>World models and learned dynamics</dt>
+        <dd>Can we recover a simple physical rule, such as constant-velocity motion, directly from a model’s activations? I’m interested in what a change of basis or a symbolic readout can reveal.</dd>
+        <dt>Embedding inversion and reinforcement learning</dt>
+        <dd>I’ve been exploring how a learned value function could guide text generation toward a target embedding. The value function estimates which partial strings are likely to end in a good match.</dd>
+        <dt>Diversity in open-ended generation</dt>
+        <dd>I’m interested in how to generate several legitimate answers to the same question and measure whether they differ in substance.</dd>
+      </dl>
+    </section>
+
+    <section id="experience" aria-labelledby="experience-h">
+      <h2 id="experience-h">Experience</h2>
+      <ol class="entries">
+        <li>
+          <div class="entry-head"><p class="entry-name">IBM Research</p><p class="entry-dates">Feb 2024 to Jun 2026</p></div>
+          <p class="entry-sub">AI Research Scientist</p>
+          <p class="entry-desc">Developed algorithms for language-model inference under fully homomorphic encryption, including greedy and stochastic decoding. Explored speculative decoding under encryption. Named inventor on five patent applications, listed first on three.</p>
+        </li>
+        <li>
+          <div class="entry-head"><p class="entry-name">Bar-Ilan University NLP Lab</p><p class="entry-dates">2022 to present</p></div>
+          <p class="entry-sub">NLP Researcher</p>
+          <p class="entry-desc">Study Transformer circuits and representations using sparse decompositions, causal interventions, and counterfactual text generation.</p>
+        </li>
+        <li>
+          <div class="entry-head"><p class="entry-name">Similarweb</p><p class="entry-dates">Jul 2021 to Feb 2023</p></div>
+          <p class="entry-sub">Data Scientist</p>
+          <p class="entry-desc">Built models for search-result traffic, click-through rates, ad cost per click, and zero-click searches. Expanded keyword coverage by roughly 120× and deployed data pipelines with PySpark and Airflow.</p>
+        </li>
+        <li>
+          <div class="entry-head"><p class="entry-name">Cynet Security</p><p class="entry-dates">Jun 2020 to Jul 2021</p></div>
+          <p class="entry-sub">Data Scientist</p>
+          <p class="entry-desc">Built and deployed endpoint malware-detection models. Improved the true-positive rate by 5.6% and reduced the false-positive rate by a factor of roughly 12. Built labeling pipelines and tools for security analysts.</p>
+        </li>
+        <li>
+          <div class="entry-head"><p class="entry-name">Trigo Vision</p><p class="entry-dates">Feb to Jul 2020</p></div>
+          <p class="entry-sub">Deep Learning Intern</p>
+          <p class="entry-desc">Applied Noisy Student self-training to human pose estimation with limited labels. The project was recognized among the top five in the Y-DATA program.</p>
+        </li>
+        <li>
+          <div class="entry-head"><p class="entry-name">Unit 8200</p><p class="entry-dates">2016 to 2020</p></div>
+          <p class="entry-sub">Python Developer</p>
+          <p class="entry-desc">Developed on-premises cloud infrastructure and built monitoring and telemetry tools for distributed systems.</p>
+        </li>
+      </ol>
+      <p class="after-list">I’ve also interviewed and mentored data scientists and Python developers. My research stack is mainly Python, PyTorch, and NumPy. My production work has also used SQL, PySpark, Databricks, Airflow, Docker, and Linux.</p>
+    </section>
+
+    <section id="education" aria-labelledby="education-h">
+      <h2 id="education-h">Education</h2>
+      <ol class="entries">
+        <li>
+          <div class="entry-head"><p class="entry-name">PhD in Computer Science</p><p class="entry-dates">Oct 2025 to present</p></div>
+          <p class="entry-sub"><span class="nowrap">Bar-Ilan University</span>, NLP Lab</p>
+        </li>
+        <li>
+          <div class="entry-head"><p class="entry-name">MSc in Computer Science</p><p class="entry-dates">2022 to 2025</p></div>
+          <p class="entry-sub"><span class="nowrap">Bar-Ilan University</span> · advised by Prof. Yoav Goldberg · GPA 95</p>
+        </li>
+        <li>
+          <div class="entry-head"><p class="entry-name">BSc in Computer Science</p><p class="entry-dates">2017 to 2022</p></div>
+          <p class="entry-sub">The Open University of Israel · GPA 89</p>
+        </li>
+        <li>
+          <div class="entry-head"><p class="entry-name">Y-DATA applied data science program</p><p class="entry-dates">2019 to 2020</p></div>
+          <p class="entry-sub">Yandex School of Data Science at Tel Aviv University · GPA 97</p>
+        </li>
+      </ol>
+    </section>
+
+    <section id="news" aria-labelledby="news-h">
+      <h2 id="news-h">News</h2>
+      <ul class="news">
+        <li><span class="news-date">December 2026</span><span>I’m heading to NeurIPS in Sydney. If you’ll be there and want to talk about interpretability or representation editing, feel free to reach out.</span></li>
+        <li><span class="news-date">September 2026</span><span>NeurIPS 2026 accepted two of my first-author papers: MANCE and <i>Position Without Positional Embeddings</i>.</span></li>
+        <li><span class="news-date">June 2026</span><span>I attended the Reinforcement Learning Summer School in Milan.</span></li>
+      </ul>
+    </section>
+
+    <section id="outside" aria-labelledby="outside-h">
+      <h2 id="outside-h">Outside the lab</h2>
+      <p>I’ve been writing about what a “GPT moment” for robotics might look like. I’ve also been thinking about how academic incentives shape the questions researchers choose to pursue. I spend a lot of time in Neovim and tmux.</p>
+      <p>Away from the terminal, I’m a Harry Potter fan, and <i>Seinfeld</i> is one of my favorite comedies. I also like crime dramas with the kind of tension <i>MobLand</i> gets right.</p>
+    </section>
+
+    <section id="contact" aria-labelledby="contact-h">
+      <h2 id="contact-h">Contact</h2>
+      <ul class="profiles">
+        <li><a href="mailto:matan13av@gmail.com">Email</a></li>
+        <li><a href="https://scholar.google.com/citations?user=C7-1ULIAAAAJ">Google Scholar</a></li>
+        <li><a href="https://github.com/MatanAvitan">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/matanavitan/">LinkedIn</a></li>
+        <li><a href="https://x.com/matan_avitan_">X</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>Last updated November 2026.</p>
+  </footer>
+</body>
+</html>
