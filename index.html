@@ -59,7 +59,12 @@
   </nav>
 
   <header class="hero" id="top">
-    <canvas class="hero-canvas" aria-hidden="true"></canvas>
+    <picture class="hero-photo">
+      <source media="(max-width: 52rem)" type="image/webp" srcset="assets/sunset-square-800.webp 800w, assets/sunset-square-1200.webp 1200w" sizes="100vw">
+      <source media="(max-width: 52rem)" srcset="assets/sunset-square-800.jpg 800w, assets/sunset-square-1200.jpg 1200w" sizes="100vw">
+      <source type="image/webp" srcset="assets/sunset-wide-1600.webp 1600w, assets/sunset-wide-2400.webp 2400w" sizes="100vw">
+      <img src="assets/sunset-wide-1600.jpg" srcset="assets/sunset-wide-1600.jpg 1600w, assets/sunset-wide-2400.jpg 2400w" sizes="100vw" alt="" width="1600" height="1296" fetchpriority="high">
+    </picture>
     <div class="container hero-inner">
       <div class="hero-text">
         <p class="eyebrow">Mechanistic interpretability · Representation geometry · Causal interventions</p>
@@ -74,20 +79,23 @@
           <li><a class="pill" href="https://x.com/matan_avitan_"><svg class="icon" aria-hidden="true"><use href="#i-x"/></svg>X</a></li>
         </ul>
       </div>
-      <div class="hero-visual">
-        <div class="portrait-ring">
-          <img class="portrait" src="assets/photo.jpg" alt="Portrait of Matan Avitan" width="400" height="400">
-        </div>
-      </div>
     </div>
   </header>
 
   <main id="main" class="container">
     <section id="about" class="section" aria-labelledby="about-h">
       <div class="section-head"><span class="section-index">01</span><h2 id="about-h">About</h2></div>
-      <div class="section-body">
-        <p>I’m a PhD candidate in the NLP Lab at <span class="nowrap">Bar-Ilan University</span>, advised by Prof. Yoav Goldberg and Dr. Yanai Elazar. My research combines mechanistic interpretability, representation geometry, and causal interventions. I’m drawn to problems where a mathematical explanation of a model’s behavior makes a prediction I can test by changing its activations.</p>
-        <p>I also work at Cato Networks. Previously, I was an AI Research Scientist at IBM Research, where I developed algorithms for generating text over encrypted data. My background also includes building production ML systems for search analytics at Similarweb and malware detection at Cynet Security.</p>
+      <div class="section-body about-body">
+        <div class="about-text">
+          <p>I’m a PhD candidate in the NLP Lab at <span class="nowrap">Bar-Ilan University</span>, advised by Prof. Yoav Goldberg and Dr. Yanai Elazar. My research combines mechanistic interpretability, representation geometry, and causal interventions. I’m drawn to problems where a mathematical explanation of a model’s behavior makes a prediction I can test by changing its activations.</p>
+          <p>I also work at Cato Networks. Previously, I was an AI Research Scientist at IBM Research, where I developed algorithms for generating text over encrypted data. My background also includes building production ML systems for search analytics at Similarweb and malware detection at Cynet Security.</p>
+        </div>
+        <div class="orbit">
+          <canvas class="orbit-canvas" aria-hidden="true"></canvas>
+          <div class="portrait-ring">
+            <img class="portrait" src="assets/photo.jpg" alt="Portrait of Matan Avitan" width="400" height="400" loading="lazy">
+          </div>
+        </div>
       </div>
     </section>
 

@@ -42,17 +42,21 @@
 
 /* Theme. main.js and the inline head script set data-theme. */
 
+/* Palette from the sunset photo: plum sky, ember horizon, dark ground. */
+
 :root {
   color-scheme: light;
-  --bg: #f7f6f2;
-  --surface: #ffffff;
-  --fg: #16161a;
-  --muted: #595966;
-  --rule: #e3e1da;
-  --chip: #efede7;
-  --accent: #4f46e5;
-  --accent-2: #0d9488;
-  --shadow: 0 1px 2px rgb(22 22 26 / 0.04), 0 10px 30px -16px rgb(22 22 26 / 0.18);
+  --bg: #f8f4ef;
+  --surface: #fffdfa;
+  --fg: #1c1614;
+  --muted: #6a5d56;
+  --rule: #e8ded4;
+  --chip: #f1e8df;
+  --accent: #b4461d;
+  --accent-2: #7a4e9c;
+  --sky-top: #b29493;
+  --photo-filter: none;
+  --shadow: 0 1px 2px rgb(28 22 20 / 0.05), 0 10px 30px -16px rgb(28 22 20 / 0.2);
   --serif: "Instrument Serif", "Iowan Old Style", Palatino, Georgia, serif;
   --sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
   --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
@@ -61,28 +65,32 @@
 
 :root[data-theme="dark"] {
   color-scheme: dark;
-  --bg: #0b0b0f;
-  --surface: #13131a;
-  --fg: #ececf1;
-  --muted: #9d9daa;
-  --rule: #24242e;
-  --chip: #1c1c25;
-  --accent: #a5b4fc;
-  --accent-2: #5eead4;
+  --bg: #100c0b;
+  --surface: #1a1412;
+  --fg: #f2eae5;
+  --muted: #a8988f;
+  --rule: #2c2321;
+  --chip: #251d1b;
+  --accent: #f4a37b;
+  --accent-2: #c8a6ea;
+  --sky-top: #806a6a;
+  --photo-filter: brightness(0.72) saturate(1.05);
   --shadow: 0 1px 2px rgb(0 0 0 / 0.3), 0 16px 40px -20px rgb(0 0 0 / 0.7);
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme]) {
     color-scheme: dark;
-    --bg: #0b0b0f;
-    --surface: #13131a;
-    --fg: #ececf1;
-    --muted: #9d9daa;
-    --rule: #24242e;
-    --chip: #1c1c25;
-    --accent: #a5b4fc;
-    --accent-2: #5eead4;
+    --bg: #100c0b;
+    --surface: #1a1412;
+    --fg: #f2eae5;
+    --muted: #a8988f;
+    --rule: #2c2321;
+    --chip: #251d1b;
+    --accent: #f4a37b;
+    --accent-2: #c8a6ea;
+    --sky-top: #806a6a;
+    --photo-filter: brightness(0.72) saturate(1.05);
     --shadow: 0 1px 2px rgb(0 0 0 / 0.3), 0 16px 40px -20px rgb(0 0 0 / 0.7);
   }
 }
@@ -201,7 +209,7 @@ a {
   width: 2rem;
   height: 2rem;
   border-radius: 0.6rem;
-  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  background: linear-gradient(135deg, var(--accent-2), var(--accent));
   color: var(--bg);
   font-family: var(--serif);
   font-size: 1.05rem;
@@ -283,28 +291,51 @@ a {
 
 /* Hero */
 
+/* The hero slides under the top bar, so the photo fills the first screen. */
 .hero {
+  --muted: color-mix(in srgb, var(--fg) 74%, var(--bg));
   position: relative;
+  margin-top: calc(-1 * var(--topbar-h));
+  padding-top: var(--topbar-h);
   overflow: hidden;
   isolation: isolate;
+  background: var(--sky-top);
 }
 
-.hero-canvas {
+.hero-photo img {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 52%;
+  filter: var(--photo-filter);
+}
+
+/* Scrim: a wash behind the text on the left, and a fade into the page at the bottom. */
+.hero::before {
+  content: "";
   position: absolute;
   inset: 0;
   z-index: -1;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
+  background:
+    linear-gradient(90deg,
+      color-mix(in srgb, var(--bg) 88%, transparent) 0%,
+      color-mix(in srgb, var(--bg) 72%, transparent) 40%,
+      color-mix(in srgb, var(--bg) 0%, transparent) 70%),
+    linear-gradient(180deg, transparent 80%, var(--bg) 100%);
 }
 
 .hero-inner {
-  display: grid;
-  grid-template-columns: minmax(0, 1.35fr) minmax(0, 0.65fr);
+  display: flex;
   align-items: center;
-  gap: 3rem;
-  min-height: min(82vh, 46rem);
-  padding-block: 4rem 5rem;
+  min-height: min(86vh, 48rem);
+  padding-block: 3rem 6rem;
+}
+
+.hero-text {
+  max-width: 40rem;
 }
 
 .eyebrow {
@@ -343,7 +374,7 @@ a {
 
 .h1-accent {
   padding-right: 0.08em;
-  background: linear-gradient(100deg, var(--accent) 10%, var(--accent-2) 90%);
+  background: linear-gradient(100deg, var(--accent-2) 5%, var(--accent) 85%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -395,28 +426,55 @@ a {
   transform: translateY(-2px);
 }
 
-.hero-visual {
+/* About: text beside the portrait, which sits inside the turning manifold. */
+
+.section-body.about-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 19rem;
+  align-items: center;
+  gap: 2.5rem;
+  max-width: none;
+}
+
+.about-text p {
+  margin: 0 0 1.1rem;
+}
+
+.about-text p:last-child {
+  margin-bottom: 0;
+}
+
+.orbit {
   position: relative;
   display: grid;
   place-items: center;
+  width: 19rem;
+  aspect-ratio: 1;
 }
 
-.hero-visual::before {
+.orbit::before {
   content: "";
   position: absolute;
-  z-index: -2;
-  width: 34rem;
-  height: 34rem;
+  inset: 8%;
   border-radius: 50%;
-  background: radial-gradient(closest-side, color-mix(in srgb, var(--accent) 16%, transparent), transparent);
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--accent) 14%, transparent), transparent);
+}
+
+.orbit-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
 }
 
 .portrait-ring {
-  width: clamp(9.5rem, 17vw, 13rem);
+  position: relative;
+  width: 9.5rem;
   aspect-ratio: 1;
   padding: 3px;
   border-radius: 50%;
-  background: conic-gradient(from 210deg, var(--accent), var(--accent-2), var(--accent));
+  background: conic-gradient(from 210deg, var(--accent-2), var(--accent), var(--accent-2));
   box-shadow: 0 24px 60px -24px color-mix(in srgb, var(--accent) 60%, transparent);
 }
 
@@ -795,16 +853,39 @@ main {
 /* Small screens */
 
 @media (max-width: 52rem) {
-  .hero-inner {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 2.2rem;
-    min-height: 0;
-    padding-block: 2.5rem 3.5rem;
+  /* On narrow screens the square crop sits at the bottom, and its sky fades into --sky-top. */
+  .hero-photo img {
+    inset: auto 0 0 0;
+    height: auto;
+    aspect-ratio: 1;
+    object-position: 50% 50%;
+    -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 38%);
+    mask-image: linear-gradient(180deg, transparent 0%, #000 38%);
   }
 
-  .hero-visual {
+  .hero::before {
+    background:
+      linear-gradient(180deg,
+        color-mix(in srgb, var(--bg) 80%, transparent) 0%,
+        color-mix(in srgb, var(--bg) 62%, transparent) 55%,
+        color-mix(in srgb, var(--bg) 0%, transparent) 78%),
+      linear-gradient(180deg, transparent 88%, var(--bg) 100%);
+  }
+
+  .hero-inner {
+    min-height: 0;
+    padding-block: 2.5rem calc(62vw + 1rem);
+  }
+
+  .section-body.about-body {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.5rem;
+  }
+
+  .orbit {
     order: -1;
-    justify-self: start;
+    justify-self: center;
+    width: min(19rem, 100%);
   }
 
   .section {
@@ -863,7 +944,7 @@ main {
 
 @media print {
   .topbar,
-  .hero-canvas,
+  .orbit-canvas,
   .theme-toggle,
   .skip-link {
     display: none;

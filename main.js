@@ -1,4 +1,4 @@
-// Theme switch, top bar state, active section link, and the hero manifold.
+// Theme switch, top bar state, active section link, and the portrait manifold.
 (function () {
   "use strict";
 
@@ -83,27 +83,27 @@
     });
   }
 
-  // ---- Hero manifold ----
+  // ---- Portrait manifold ----
   // Points on a Swiss roll, seen along its axis, so the roll forms a spiral
   // around the portrait. The roll turns slowly and tilts toward the pointer.
 
-  var hero = document.querySelector(".hero");
-  var canvas = document.querySelector(".hero-canvas");
+  var orbit = document.querySelector(".orbit");
+  var canvas = document.querySelector(".orbit-canvas");
   var ring = document.querySelector(".portrait-ring");
-  if (!hero || !canvas || !ring || !canvas.getContext) return;
+  if (!orbit || !canvas || !ring || !canvas.getContext) return;
 
   var ctx = canvas.getContext("2d");
   var T0 = 1.5 * Math.PI;
-  var T1 = 4.5 * Math.PI;
+  var T1 = 3.5 * Math.PI;
   var DEPTH = 7;
   var CAMERA = 38;
 
   var points = [];
-  var colorA = [79, 70, 229];
-  var colorB = [13, 148, 136];
+  var colorA = [180, 70, 29];
+  var colorB = [122, 78, 156];
   var W = 0, H = 0, dpr = 1, cx = 0, cy = 0, scale = 1;
   var spin = 0.6, tiltX = 0, tiltY = 0, targetX = 0, targetY = 0;
-  var running = false, heroVisible = true, rafId = 0, lastFrame = 0, clock = 0;
+  var running = false, orbitVisible = true, rafId = 0, lastFrame = 0, clock = 0;
 
   function parseHex(value, fallback) {
     var m = /^#?([0-9a-f]{6})$/i.exec(String(value).trim());
@@ -184,7 +184,7 @@
   }
 
   function resize() {
-    var box = hero.getBoundingClientRect();
+    var box = orbit.getBoundingClientRect();
     var r = ring.getBoundingClientRect();
     dpr = Math.min(window.devicePixelRatio || 1, 2);
     W = box.width;
@@ -193,8 +193,9 @@
     canvas.height = Math.round(H * dpr);
     cx = r.left - box.left + r.width / 2;
     cy = r.top - box.top + r.height / 2;
-    scale = (r.width / 2 + 16) / T0;
-    var count = W < 700 ? 900 : 1500;
+    // Start the spiral at the photo edge, but keep its outer turn inside the box.
+    scale = Math.min((r.width / 2 + 10) / T0, (Math.min(W, H) / 2 - 6) / T1);
+    var count = 700;
     if (points.length !== count) build(count);
     draw();
   }
@@ -211,7 +212,7 @@
   }
 
   function start() {
-    if (running || mqReduce.matches || !heroVisible || document.hidden) return;
+    if (running || mqReduce.matches || !orbitVisible || document.hidden) return;
     running = true;
     lastFrame = 0;
     rafId = requestAnimationFrame(frame);
@@ -252,14 +253,14 @@
 
   if ("IntersectionObserver" in window) {
     new IntersectionObserver(function (entries) {
-      heroVisible = entries[0].isIntersecting;
-      if (heroVisible) start();
+      orbitVisible = entries[0].isIntersecting;
+      if (orbitVisible) start();
       else stop();
-    }).observe(hero);
+    }).observe(orbit);
   }
 
   if ("ResizeObserver" in window) {
-    new ResizeObserver(resize).observe(hero);
+    new ResizeObserver(resize).observe(orbit);
   } else {
     window.addEventListener("resize", resize);
   }
