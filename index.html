@@ -104,72 +104,87 @@
       <div class="section-head"><span class="section-index">02</span><h2 id="publications-h">Publications</h2></div>
       <div class="section-body">
         <ol class="pubs">
-          <li class="card pub">
-            <div class="pub-fig">
-              <img src="assets/figs/mance-800.webp" srcset="assets/figs/mance-800.webp 800w, assets/figs/mance-1600.webp 1600w" sizes="(max-width: 52rem) calc(100vw - 5rem), 52rem" alt="Figure 1 of MANCE. Three panels show the representation manifold, an unconstrained erasure step that leaves the manifold, and a MANCE step that stays on the tangent plane." width="800" height="259" loading="lazy" decoding="async">
-              <span class="fig-tag" aria-hidden="true">Fig. 1</span>
+          <li class="pub">
+            <div class="pub-area">
+              <div class="pub-media">
+                <img src="assets/figs/mance-800.webp" srcset="assets/figs/mance-800.webp 800w, assets/figs/mance-1600.webp 1600w" sizes="(max-width: 52rem) calc(100vw - 5rem), 52rem" alt="Figure 1 of MANCE. Three panels show the representation manifold, an unconstrained erasure step that leaves the manifold, and a MANCE step that stays on the tangent plane." width="800" height="259" loading="lazy" decoding="async">
+              </div>
+              <div class="pub-content">
+                <p class="pub-meta"><span class="chip">NeurIPS 2026</span><span class="chip chip-primary">First author</span></p>
+                <h3 class="pub-title"><a class="pub-main" href="https://arxiv.org/abs/2607.03973">MANCE: Manifold-Aware Concept Erasure</a></h3>
+                <p class="pub-authors"><span class="me">Matan Avitan</span>, Yoav Goldberg, Yanai Elazar</p>
+                <p class="pub-desc">Can we erase a concept from a model’s representation while preserving other information encoded alongside it? MANCE estimates the local geometry of naturally occurring activations and uses it to constrain each edit. Across 119 settings in language and vision, these constraints improved the trade-off between removing the target concept and preserving other attributes.</p>
+              </div>
             </div>
-            <p class="pub-meta"><span class="venue">NeurIPS 2026</span><span class="first-author">First author</span></p>
-            <h3 class="pub-title"><a class="pub-main" href="https://arxiv.org/abs/2607.03973">MANCE: Manifold-Aware Concept Erasure</a></h3>
-            <p class="pub-authors"><span class="me">Matan Avitan</span>, Yoav Goldberg, Yanai Elazar</p>
-            <p class="pub-desc">Can we erase a concept from a model’s representation while preserving other information encoded alongside it? MANCE estimates the local geometry of naturally occurring activations and uses it to constrain each edit. Across 119 settings in language and vision, these constraints improved the trade-off between removing the target concept and preserving other attributes.</p>
-            <ul class="pub-links">
-              <li><a class="btn-link" href="https://arxiv.org/abs/2607.03973">Paper <span aria-hidden="true">↗</span></a></li>
-              <li><a class="btn-link" href="https://github.com/MatanAvitan/mance">Code <span aria-hidden="true">↗</span></a></li>
+            <ul class="pub-actions">
+              <li><a class="mui-btn" href="https://arxiv.org/abs/2607.03973">Paper</a></li>
+              <li><a class="mui-btn" href="https://github.com/MatanAvitan/mance">Code</a></li>
             </ul>
           </li>
-          <li class="card pub">
-            <div class="pub-fig">
-              <img src="assets/figs/nope-800.webp" srcset="assets/figs/nope-800.webp 800w, assets/figs/nope-1600.webp 1600w" sizes="(max-width: 52rem) calc(100vw - 5rem), 52rem" alt="Figure 1 of Position Without Positional Embeddings. In five steps over two layers, a noisy attention signal to the BOS token becomes a position signal that later layers can read." width="800" height="320" loading="lazy" decoding="async">
-              <span class="fig-tag" aria-hidden="true">Fig. 1</span>
+          <li class="pub">
+            <div class="pub-area">
+              <div class="pub-media">
+                <img src="assets/figs/nope-800.webp" srcset="assets/figs/nope-800.webp 800w, assets/figs/nope-1600.webp 1600w" sizes="(max-width: 52rem) calc(100vw - 5rem), 52rem" alt="Figure 1 of Position Without Positional Embeddings. In five steps over two layers, a noisy attention signal to the BOS token becomes a position signal that later layers can read." width="800" height="320" loading="lazy" decoding="async">
+              </div>
+              <div class="pub-content">
+                <p class="pub-meta"><span class="chip">NeurIPS 2026</span><span class="chip chip-primary">First author</span></p>
+                <h3 class="pub-title"><a class="pub-main" href="https://neurips.cc/virtual/2026/poster/152488">Position Without Positional Embeddings: A Directional Mechanism in NoPE Transformers</a></h3>
+                <p class="pub-authors"><span class="me">Matan Avitan</span>, Ido Nachum, Yanai Elazar, Yoav Goldberg</p>
+                <p class="pub-desc">How does a Transformer know whether a token is the fifth or the fiftieth without positional embeddings? We identify a two-block circuit that uses the beginning-of-sequence token as a shared reference. Attention to that token falls predictably as the prefix grows, approximately as <span class="math"><i>k</i>/(<i>k</i>&#8202;+&#8202;<i>i</i>)</span>. The circuit writes that signal into an activation direction that survives LayerNorm. We find the mechanism in trained models, including a language model trained on next-token prediction.</p>
+              </div>
             </div>
-            <p class="pub-meta"><span class="venue">NeurIPS 2026</span><span class="first-author">First author</span></p>
-            <h3 class="pub-title"><a class="pub-main" href="https://neurips.cc/virtual/2026/poster/152488">Position Without Positional Embeddings: A Directional Mechanism in NoPE Transformers</a></h3>
-            <p class="pub-authors"><span class="me">Matan Avitan</span>, Ido Nachum, Yanai Elazar, Yoav Goldberg</p>
-            <p class="pub-desc">How does a Transformer know whether a token is the fifth or the fiftieth without positional embeddings? We identify a two-block circuit that uses the beginning-of-sequence token as a shared reference. Attention to that token falls predictably as the prefix grows, approximately as <span class="math"><i>k</i>/(<i>k</i>&#8202;+&#8202;<i>i</i>)</span>. The circuit writes that signal into an activation direction that survives LayerNorm. We find the mechanism in trained models, including a language model trained on next-token prediction.</p>
-            <ul class="pub-links">
-              <li><a class="btn-link" href="https://neurips.cc/virtual/2026/poster/152488">NeurIPS page <span aria-hidden="true">↗</span></a></li>
+            <ul class="pub-actions">
+              <li><a class="mui-btn" href="https://neurips.cc/virtual/2026/poster/152488">NeurIPS page</a></li>
             </ul>
           </li>
-          <li class="card pub">
-            <div class="pub-fig">
-              <img src="assets/figs/powersoftmax-800.webp" srcset="assets/figs/powersoftmax-800.webp 800w, assets/figs/powersoftmax-1600.webp 1600w" sizes="(max-width: 52rem) calc(100vw - 5rem), 52rem" alt="Figure 1 of PowerSoftmax. Three plots compare softmax with power normalization for p equal to 2, 4, and 8 on normal, uniform, and evenly spaced inputs." width="800" height="197" loading="lazy" decoding="async">
-              <span class="fig-tag" aria-hidden="true">Fig. 1</span>
+          <li class="pub">
+            <div class="pub-area">
+              <div class="pub-media">
+                <img src="assets/figs/powersoftmax-800.webp" srcset="assets/figs/powersoftmax-800.webp 800w, assets/figs/powersoftmax-1600.webp 1600w" sizes="(max-width: 52rem) calc(100vw - 5rem), 52rem" alt="Figure 1 of PowerSoftmax. Three plots compare softmax with power normalization for p equal to 2, 4, and 8 on normal, uniform, and evenly spaced inputs." width="800" height="197" loading="lazy" decoding="async">
+              </div>
+              <div class="pub-content">
+                <p class="pub-meta"><span class="chip">AISTATS 2026</span></p>
+                <h3 class="pub-title"><a class="pub-main" href="https://proceedings.mlr.press/v300/zimerman26a.html">PowerSoftmax: Towards Secure LLM Inference Over Encrypted Data</a></h3>
+                <p class="pub-authors">Itamar Zimerman, Allon Adir, Ehud Aharoni, <span class="me">Matan Avitan</span>, Moran Baruch, Nir Drucker, Jenny Lerner, Ramy Masalha, Reut Moshe, Omri Soceanu</p>
+                <p class="pub-desc">We develop a self-attention mechanism that polynomials can approximate efficiently, which makes homomorphic inference practical. We use it to train language models with over a billion parameters. We presented an earlier version of this work at FHE.org 2025.</p>
+              </div>
             </div>
-            <p class="pub-meta"><span class="venue">AISTATS 2026</span></p>
-            <h3 class="pub-title"><a class="pub-main" href="https://proceedings.mlr.press/v300/zimerman26a.html">PowerSoftmax: Towards Secure LLM Inference Over Encrypted Data</a></h3>
-            <p class="pub-authors">Itamar Zimerman, Allon Adir, Ehud Aharoni, <span class="me">Matan Avitan</span>, Moran Baruch, Nir Drucker, Jenny Lerner, Ramy Masalha, Reut Moshe, Omri Soceanu</p>
-            <p class="pub-desc">We develop a self-attention mechanism that polynomials can approximate efficiently, which makes homomorphic inference practical. We use it to train language models with over a billion parameters. We presented an earlier version of this work at FHE.org 2025.</p>
-            <ul class="pub-links">
-              <li><a class="btn-link" href="https://proceedings.mlr.press/v300/zimerman26a.html">Paper <span aria-hidden="true">↗</span></a></li>
-              <li><a class="btn-link" href="https://research.ibm.com/publications/powersoftmax-towards-secure-llm-inference-over-fhe">FHE.org presentation entry <span aria-hidden="true">↗</span></a></li>
+            <ul class="pub-actions">
+              <li><a class="mui-btn" href="https://proceedings.mlr.press/v300/zimerman26a.html">Paper</a></li>
+              <li><a class="mui-btn" href="https://research.ibm.com/publications/powersoftmax-towards-secure-llm-inference-over-fhe">FHE.org presentation entry</a></li>
             </ul>
           </li>
-          <li class="card pub">
-            <div class="pub-fig">
-              <img src="assets/figs/decoding-800.webp" srcset="assets/figs/decoding-800.webp 800w, assets/figs/decoding-1600.webp 1600w" sizes="(max-width: 52rem) calc(100vw - 5rem), 52rem" alt="Figure 1 of Efficient Decoding Methods. A client sends an encrypted input, the server runs the language model, and an argmax or sampling step under encryption selects each next token." width="800" height="318" loading="lazy" decoding="async">
-              <span class="fig-tag" aria-hidden="true">Fig. 1</span>
+          <li class="pub">
+            <div class="pub-area">
+              <div class="pub-media">
+                <img src="assets/figs/decoding-800.webp" srcset="assets/figs/decoding-800.webp 800w, assets/figs/decoding-1600.webp 1600w" sizes="(max-width: 52rem) calc(100vw - 5rem), 52rem" alt="Figure 1 of Efficient Decoding Methods. A client sends an encrypted input, the server runs the language model, and an argmax or sampling step under encryption selects each next token." width="800" height="318" loading="lazy" decoding="async">
+              </div>
+              <div class="pub-content">
+                <p class="pub-meta"><span class="chip">Findings of ACL, IJCNLP-AACL 2025</span><span class="chip chip-primary">First author</span></p>
+                <h3 class="pub-title"><a class="pub-main" href="https://aclanthology.org/2025.findings-ijcnlp.111/">Efficient Decoding Methods for Language Models on Encrypted Data</a></h3>
+                <p class="pub-authors"><span class="me">Matan Avitan</span>, Moran Baruch, Nir Drucker, Itamar Zimerman, Yoav Goldberg</p>
+                <p class="pub-desc">We introduce CutMax, an argmax algorithm for greedy decoding under homomorphic encryption, and a compatible nucleus sampling method for stochastic decoding. On realistic language-model outputs, the methods achieved speedups of 24× to 35× over the baselines we tested.</p>
+              </div>
             </div>
-            <p class="pub-meta"><span class="venue">Findings of ACL, IJCNLP-AACL 2025</span><span class="first-author">First author</span></p>
-            <h3 class="pub-title"><a class="pub-main" href="https://aclanthology.org/2025.findings-ijcnlp.111/">Efficient Decoding Methods for Language Models on Encrypted Data</a></h3>
-            <p class="pub-authors"><span class="me">Matan Avitan</span>, Moran Baruch, Nir Drucker, Itamar Zimerman, Yoav Goldberg</p>
-            <p class="pub-desc">We introduce CutMax, an argmax algorithm for greedy decoding under homomorphic encryption, and a compatible nucleus sampling method for stochastic decoding. On realistic language-model outputs, the methods achieved speedups of 24× to 35× over the baselines we tested.</p>
-            <ul class="pub-links">
-              <li><a class="btn-link" href="https://aclanthology.org/2025.findings-ijcnlp.111/">Paper <span aria-hidden="true">↗</span></a></li>
+            <ul class="pub-actions">
+              <li><a class="mui-btn" href="https://aclanthology.org/2025.findings-ijcnlp.111/">Paper</a></li>
             </ul>
           </li>
-          <li class="card pub pub--side">
-            <div class="pub-fig">
-              <img src="assets/figs/counterfactuals-800.webp" srcset="assets/figs/counterfactuals-800.webp 800w, assets/figs/counterfactuals-1369.webp 1369w" sizes="(max-width: 52rem) 18rem, 15rem" alt="Figure 1 of A Practical Method for Generating String Counterfactuals. An original biography and three counterfactual versions from the MiMiC, LEACE, and MiMiC+ interventions." width="800" height="1187" loading="lazy" decoding="async">
-              <span class="fig-tag" aria-hidden="true">Fig. 1</span>
+          <li class="pub pub--tall">
+            <div class="pub-area">
+              <div class="pub-media">
+                <img src="assets/figs/counterfactuals-800.webp" srcset="assets/figs/counterfactuals-800.webp 800w, assets/figs/counterfactuals-1369.webp 1369w" sizes="14rem" alt="Figure 1 of A Practical Method for Generating String Counterfactuals. An original biography and three counterfactual versions from the MiMiC, LEACE, and MiMiC+ interventions." width="800" height="1187" loading="lazy" decoding="async">
+              </div>
+              <div class="pub-content">
+                <p class="pub-meta"><span class="chip">Findings of ACL, NAACL 2025</span><span class="chip chip-primary">First author</span></p>
+                <h3 class="pub-title"><a class="pub-main" href="https://aclanthology.org/2025.findings-naacl.180/">A Practical Method for Generating String Counterfactuals</a></h3>
+                <p class="pub-authors"><span class="me">Matan Avitan</span>, Ryan Cotterell, Yoav Goldberg, Shauli Ravfogel</p>
+                <p class="pub-desc">When we edit a model’s representation of a biography, what changes in the text? We turn edited representations back into readable counterfactuals, making it possible to inspect how an intervention changes the wording. We also use the resulting examples as training data to reduce gender bias in occupation classification.</p>
+              </div>
             </div>
-            <p class="pub-meta"><span class="venue">Findings of ACL, NAACL 2025</span><span class="first-author">First author</span></p>
-            <h3 class="pub-title"><a class="pub-main" href="https://aclanthology.org/2025.findings-naacl.180/">A Practical Method for Generating String Counterfactuals</a></h3>
-            <p class="pub-authors"><span class="me">Matan Avitan</span>, Ryan Cotterell, Yoav Goldberg, Shauli Ravfogel</p>
-            <p class="pub-desc">When we edit a model’s representation of a biography, what changes in the text? We turn edited representations back into readable counterfactuals, making it possible to inspect how an intervention changes the wording. We also use the resulting examples as training data to reduce gender bias in occupation classification.</p>
-            <ul class="pub-links">
-              <li><a class="btn-link" href="https://aclanthology.org/2025.findings-naacl.180/">Paper <span aria-hidden="true">↗</span></a></li>
-              <li><a class="btn-link" href="https://github.com/MatanAvitan/rep-to-string-counterfactuals">Code <span aria-hidden="true">↗</span></a></li>
+            <ul class="pub-actions">
+              <li><a class="mui-btn" href="https://aclanthology.org/2025.findings-naacl.180/">Paper</a></li>
+              <li><a class="mui-btn" href="https://github.com/MatanAvitan/rep-to-string-counterfactuals">Code</a></li>
             </ul>
           </li>
         </ol>

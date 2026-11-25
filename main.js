@@ -1,4 +1,4 @@
-// Theme switch, top bar state, active section link, and the hero portrait manifold.
+// Theme switch, top bar state, active section link, card ripples, and the hero portrait manifold.
 (function () {
   "use strict";
 
@@ -77,6 +77,31 @@
       if (section) spy.observe(section);
     });
   }
+
+  // ---- Touch ripple on the paper cards and their buttons, as in Material Design ----
+
+  function ripple(e) {
+    if (mqReduce.matches || e.button !== 0) return;
+    var host = e.currentTarget;
+    var r = host.getBoundingClientRect();
+    var x = e.clientX - r.left;
+    var y = e.clientY - r.top;
+    // The circle must reach the farthest corner of the host.
+    var size = 2 * Math.sqrt(Math.pow(Math.max(x, r.width - x), 2) + Math.pow(Math.max(y, r.height - y), 2));
+    var dot = document.createElement("span");
+    dot.className = "ripple";
+    dot.style.width = dot.style.height = size + "px";
+    dot.style.left = x - size / 2 + "px";
+    dot.style.top = y - size / 2 + "px";
+    dot.addEventListener("animationend", function () {
+      dot.remove();
+    });
+    host.appendChild(dot);
+  }
+
+  Array.prototype.forEach.call(document.querySelectorAll(".pub-area, .mui-btn"), function (el) {
+    el.addEventListener("pointerdown", ripple);
+  });
 
   // ---- Hero portrait: center it at the upper right of the tree ----
   // The photo uses object-fit: cover, so the tree moves with the window shape.
