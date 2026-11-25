@@ -12,7 +12,6 @@
   <meta property="og:url" content="https://matanavitan.github.io/">
   <meta property="og:image" content="https://matanavitan.github.io/assets/photo.jpg">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="preload" href="assets/fonts/instrument-serif-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="style.css">
   <script>
@@ -40,7 +39,7 @@
 
   <nav class="topbar" aria-label="Sections">
     <div class="container topbar-inner">
-      <a class="mark" href="#top"><span class="mark-badge" aria-hidden="true">MA</span><span class="mark-name">Matan Avitan</span></a>
+      <a class="mark" href="#top">Matan Avitan</a>
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
         <li><a href="#publications">Publications</a></li>
@@ -70,16 +69,15 @@
     </div>
     <div class="container hero-inner">
       <div class="hero-text">
-        <p class="eyebrow">Mechanistic interpretability · Representation geometry · Algorithms</p>
         <h1>Matan Avitan</h1>
         <p class="tagline">AI researcher and computer science PhD candidate at <span class="nowrap">Bar-Ilan University</span></p>
         <p class="lead">I study how neural networks represent information and how they use it to make predictions. My work combines mechanistic interpretability, representation geometry, and efficient algorithms.</p>
-        <ul class="pills">
-          <li><a class="pill" href="mailto:matan13av@gmail.com"><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg>Email</a></li>
-          <li><a class="pill" href="https://scholar.google.com/citations?user=C7-1ULIAAAAJ"><svg class="icon" aria-hidden="true"><use href="#i-scholar"/></svg>Google Scholar</a></li>
-          <li><a class="pill" href="https://github.com/MatanAvitan"><svg class="icon" aria-hidden="true"><use href="#i-github"/></svg>GitHub</a></li>
-          <li><a class="pill" href="https://www.linkedin.com/in/matanavitan/"><svg class="icon" aria-hidden="true"><use href="#i-linkedin"/></svg>LinkedIn</a></li>
-          <li><a class="pill" href="https://x.com/matan_avitan_"><svg class="icon" aria-hidden="true"><use href="#i-x"/></svg>X</a></li>
+        <ul class="links">
+          <li><a href="mailto:matan13av@gmail.com"><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg>Email</a></li>
+          <li><a href="https://scholar.google.com/citations?user=C7-1ULIAAAAJ"><svg class="icon" aria-hidden="true"><use href="#i-scholar"/></svg>Google Scholar</a></li>
+          <li><a href="https://github.com/MatanAvitan"><svg class="icon" aria-hidden="true"><use href="#i-github"/></svg>GitHub</a></li>
+          <li><a href="https://www.linkedin.com/in/matanavitan/"><svg class="icon" aria-hidden="true"><use href="#i-linkedin"/></svg>LinkedIn</a></li>
+          <li><a href="https://x.com/matan_avitan_"><svg class="icon" aria-hidden="true"><use href="#i-x"/></svg>X</a></li>
         </ul>
       </div>
     </div>
@@ -87,184 +85,177 @@
 
   <main id="main" class="container">
     <section id="about" class="section" aria-labelledby="about-h">
-      <div class="section-head"><span class="section-index">01</span><h2 id="about-h">About</h2></div>
-      <div class="section-body">
-        <div class="about-text">
-          <p>I am a PhD candidate in the NLP Lab at <span class="nowrap">Bar-Ilan University</span>. I am advised by Prof. Yoav Goldberg and Dr. Yanai Elazar.</p>
-          <p>My research asks what happens inside a neural network when it makes a prediction. I want to know what information a model stores, how it organizes that information, and how it uses it. The answers let us explain model behavior and change it in a controlled way.</p>
-          <p>One part of my work studies the geometry of representations. Neural networks often organize data on manifolds rather than in linear spaces. This perspective led to MANCE, a concept erasure method accepted to NeurIPS 2026.<sup><a href="https://arxiv.org/abs/2607.03973" aria-label="Reference 1: MANCE: Manifold-Aware Concept Erasure">[1]</a></sup></p>
-          <p>Another part looks for the mechanisms that models learn. I presented the first full mechanism explaining how Transformers learn absolute token positions without positional embeddings.<sup><a href="https://neurips.cc/virtual/2026/poster/152488" aria-label="Reference 2: Position Without Positional Embeddings">[2]</a></sup> The work combines theory with evidence from trained models and was accepted to the NeurIPS 2026 main track.</p>
-          <p>I am also interested in counterfactual generation and how it helps interpretability and bias mitigation. I developed a method that turns edited representations back into readable text. We used the resulting counterfactuals to reduce gender bias in a classifier.<sup><a href="https://aclanthology.org/2025.findings-naacl.180/" aria-label="Reference 3: A Practical Method for Generating String Counterfactuals">[3]</a></sup></p>
-          <p>Finally, I design algorithms that let language models generate text on encrypted data. I developed CutMax, an efficient argmax algorithm, and a method for sampling under encryption.<sup><a href="https://aclanthology.org/2025.findings-ijcnlp.111/" aria-label="Reference 4: Efficient Decoding Methods for Language Models on Encrypted Data">[4]</a></sup></p>
-        </div>
+      <h2 id="about-h">About</h2>
+      <div class="about-text">
+        <p>I am a PhD candidate in the NLP Lab at <span class="nowrap">Bar-Ilan University</span>. I am advised by Prof. Yoav Goldberg and Dr. Yanai Elazar.</p>
+        <p>My research asks what happens inside a neural network when it makes a prediction. I want to know what information a model stores, how it organizes that information, and how it uses it. The answers let us explain model behavior and change it in a controlled way.</p>
+        <p>One part of my work studies the geometry of representations. Neural networks often organize data on manifolds rather than in linear spaces. This perspective led to MANCE, a concept erasure method accepted to NeurIPS 2026.<sup><a href="https://arxiv.org/abs/2607.03973" aria-label="Reference 1: MANCE: Manifold-Aware Concept Erasure">[1]</a></sup></p>
+        <p>Another part looks for the mechanisms that models learn. I presented the first full mechanism explaining how Transformers learn absolute token positions without positional embeddings.<sup><a href="https://neurips.cc/virtual/2026/poster/152488" aria-label="Reference 2: Position Without Positional Embeddings">[2]</a></sup> The work combines theory with evidence from trained models and was accepted to the NeurIPS 2026 main track.</p>
+        <p>I am also interested in counterfactual generation and how it helps interpretability and bias mitigation. I developed a method that turns edited representations back into readable text. We used the resulting counterfactuals to reduce gender bias in a classifier.<sup><a href="https://aclanthology.org/2025.findings-naacl.180/" aria-label="Reference 3: A Practical Method for Generating String Counterfactuals">[3]</a></sup></p>
+        <p>Finally, I design algorithms that let language models generate text on encrypted data. I developed CutMax, an efficient argmax algorithm, and a method for sampling under encryption.<sup><a href="https://aclanthology.org/2025.findings-ijcnlp.111/" aria-label="Reference 4: Efficient Decoding Methods for Language Models on Encrypted Data">[4]</a></sup></p>
       </div>
     </section>
 
     <section id="publications" class="section" aria-labelledby="publications-h">
-      <div class="section-head"><span class="section-index">02</span><h2 id="publications-h">Publications</h2></div>
-      <div class="section-body">
-        <ol class="pubs">
-          <li class="card pub">
-            <div class="pub-fig">
-              <img src="assets/figs/mance-800.webp" srcset="assets/figs/mance-800.webp 800w, assets/figs/mance-1600.webp 1600w" sizes="(max-width: 52rem) calc(100vw - 5rem), 52rem" alt="Figure 1 of MANCE. Three panels show the representation manifold, an unconstrained erasure step that leaves the manifold, and a MANCE step that stays on the tangent plane." width="800" height="259" loading="lazy" decoding="async">
-              <span class="fig-tag" aria-hidden="true">Fig. 1</span>
-            </div>
-            <p class="pub-meta"><span class="venue">NeurIPS 2026</span><span class="first-author">First author</span></p>
+      <h2 id="publications-h">Publications</h2>
+      <ol class="pubs">
+        <li class="pub">
+          <div class="pub-fig">
+            <img src="assets/figs/mance-800.webp" srcset="assets/figs/mance-800.webp 800w, assets/figs/mance-1600.webp 1600w" sizes="(max-width: 52rem) calc(100vw - 3rem), 20rem" alt="Figure 1 of MANCE. Three panels show the representation manifold, an unconstrained erasure step that leaves the manifold, and a MANCE step that stays on the tangent plane." width="800" height="259" loading="lazy" decoding="async">
+          </div>
+          <div class="pub-text">
             <h3 class="pub-title"><a class="pub-main" href="https://arxiv.org/abs/2607.03973">MANCE: Manifold-Aware Concept Erasure</a></h3>
             <p class="pub-authors"><span class="me">Matan Avitan</span>, Yoav Goldberg, Yanai Elazar</p>
+            <p class="pub-venue"><i>NeurIPS 2026</i> · First author</p>
             <p class="pub-desc">Can we erase a concept from a model’s representation while preserving other information encoded alongside it? MANCE estimates the local geometry of naturally occurring activations and uses it to constrain each edit. Across 119 settings in language and vision, these constraints improved the trade-off between removing the target concept and preserving other attributes.</p>
             <ul class="pub-links">
-              <li><a class="btn-link" href="https://arxiv.org/abs/2607.03973">Paper <span aria-hidden="true">↗</span></a></li>
-              <li><a class="btn-link" href="https://github.com/MatanAvitan/mance">Code <span aria-hidden="true">↗</span></a></li>
+              <li><a href="https://arxiv.org/abs/2607.03973">Paper</a></li>
+              <li><a href="https://github.com/MatanAvitan/mance">Code</a></li>
             </ul>
-          </li>
-          <li class="card pub">
-            <div class="pub-fig">
-              <img src="assets/figs/nope-800.webp" srcset="assets/figs/nope-800.webp 800w, assets/figs/nope-1600.webp 1600w" sizes="(max-width: 52rem) calc(100vw - 5rem), 52rem" alt="Figure 1 of Position Without Positional Embeddings. In five steps over two layers, a noisy attention signal to the BOS token becomes a position signal that later layers can read." width="800" height="320" loading="lazy" decoding="async">
-              <span class="fig-tag" aria-hidden="true">Fig. 1</span>
-            </div>
-            <p class="pub-meta"><span class="venue">NeurIPS 2026</span><span class="first-author">First author</span></p>
+          </div>
+        </li>
+        <li class="pub">
+          <div class="pub-fig">
+            <img src="assets/figs/nope-800.webp" srcset="assets/figs/nope-800.webp 800w, assets/figs/nope-1600.webp 1600w" sizes="(max-width: 52rem) calc(100vw - 3rem), 20rem" alt="Figure 1 of Position Without Positional Embeddings. In five steps over two layers, a noisy attention signal to the BOS token becomes a position signal that later layers can read." width="800" height="320" loading="lazy" decoding="async">
+          </div>
+          <div class="pub-text">
             <h3 class="pub-title"><a class="pub-main" href="https://neurips.cc/virtual/2026/poster/152488">Position Without Positional Embeddings: A Directional Mechanism in NoPE Transformers</a></h3>
             <p class="pub-authors"><span class="me">Matan Avitan</span>, Ido Nachum, Yanai Elazar, Yoav Goldberg</p>
+            <p class="pub-venue"><i>NeurIPS 2026</i> · First author</p>
             <p class="pub-desc">How does a Transformer know whether a token is the fifth or the fiftieth without positional embeddings? We identify a two-block circuit that uses the beginning-of-sequence token as a shared reference. Attention to that token falls predictably as the prefix grows, approximately as <span class="math"><i>k</i>/(<i>k</i>&#8202;+&#8202;<i>i</i>)</span>. The circuit writes that signal into an activation direction that survives LayerNorm. We find the mechanism in trained models, including a language model trained on next-token prediction.</p>
             <ul class="pub-links">
-              <li><a class="btn-link" href="https://neurips.cc/virtual/2026/poster/152488">NeurIPS page <span aria-hidden="true">↗</span></a></li>
+              <li><a href="https://neurips.cc/virtual/2026/poster/152488">NeurIPS page</a></li>
             </ul>
-          </li>
-          <li class="card pub">
-            <div class="pub-fig">
-              <img src="assets/figs/powersoftmax-800.webp" srcset="assets/figs/powersoftmax-800.webp 800w, assets/figs/powersoftmax-1600.webp 1600w" sizes="(max-width: 52rem) calc(100vw - 5rem), 52rem" alt="Figure 1 of PowerSoftmax. Three plots compare softmax with power normalization for p equal to 2, 4, and 8 on normal, uniform, and evenly spaced inputs." width="800" height="197" loading="lazy" decoding="async">
-              <span class="fig-tag" aria-hidden="true">Fig. 1</span>
-            </div>
-            <p class="pub-meta"><span class="venue">AISTATS 2026</span></p>
+          </div>
+        </li>
+        <li class="pub">
+          <div class="pub-fig">
+            <img src="assets/figs/powersoftmax-800.webp" srcset="assets/figs/powersoftmax-800.webp 800w, assets/figs/powersoftmax-1600.webp 1600w" sizes="(max-width: 52rem) calc(100vw - 3rem), 20rem" alt="Figure 1 of PowerSoftmax. Three plots compare softmax with power normalization for p equal to 2, 4, and 8 on normal, uniform, and evenly spaced inputs." width="800" height="197" loading="lazy" decoding="async">
+          </div>
+          <div class="pub-text">
             <h3 class="pub-title"><a class="pub-main" href="https://proceedings.mlr.press/v300/zimerman26a.html">PowerSoftmax: Towards Secure LLM Inference Over Encrypted Data</a></h3>
             <p class="pub-authors">Itamar Zimerman, Allon Adir, Ehud Aharoni, <span class="me">Matan Avitan</span>, Moran Baruch, Nir Drucker, Jenny Lerner, Ramy Masalha, Reut Moshe, Omri Soceanu</p>
+            <p class="pub-venue"><i>AISTATS 2026</i></p>
             <p class="pub-desc">We develop a self-attention mechanism that polynomials can approximate efficiently, which makes homomorphic inference practical. We use it to train language models with over a billion parameters. We presented an earlier version of this work at FHE.org 2025.</p>
             <ul class="pub-links">
-              <li><a class="btn-link" href="https://proceedings.mlr.press/v300/zimerman26a.html">Paper <span aria-hidden="true">↗</span></a></li>
-              <li><a class="btn-link" href="https://research.ibm.com/publications/powersoftmax-towards-secure-llm-inference-over-fhe">FHE.org presentation entry <span aria-hidden="true">↗</span></a></li>
+              <li><a href="https://proceedings.mlr.press/v300/zimerman26a.html">Paper</a></li>
+              <li><a href="https://research.ibm.com/publications/powersoftmax-towards-secure-llm-inference-over-fhe">FHE.org presentation entry</a></li>
             </ul>
-          </li>
-          <li class="card pub">
-            <div class="pub-fig">
-              <img src="assets/figs/decoding-800.webp" srcset="assets/figs/decoding-800.webp 800w, assets/figs/decoding-1600.webp 1600w" sizes="(max-width: 52rem) calc(100vw - 5rem), 52rem" alt="Figure 1 of Efficient Decoding Methods. A client sends an encrypted input, the server runs the language model, and an argmax or sampling step under encryption selects each next token." width="800" height="318" loading="lazy" decoding="async">
-              <span class="fig-tag" aria-hidden="true">Fig. 1</span>
-            </div>
-            <p class="pub-meta"><span class="venue">Findings of ACL, IJCNLP-AACL 2025</span><span class="first-author">First author</span></p>
+          </div>
+        </li>
+        <li class="pub">
+          <div class="pub-fig">
+            <img src="assets/figs/decoding-800.webp" srcset="assets/figs/decoding-800.webp 800w, assets/figs/decoding-1600.webp 1600w" sizes="(max-width: 52rem) calc(100vw - 3rem), 20rem" alt="Figure 1 of Efficient Decoding Methods. A client sends an encrypted input, the server runs the language model, and an argmax or sampling step under encryption selects each next token." width="800" height="318" loading="lazy" decoding="async">
+          </div>
+          <div class="pub-text">
             <h3 class="pub-title"><a class="pub-main" href="https://aclanthology.org/2025.findings-ijcnlp.111/">Efficient Decoding Methods for Language Models on Encrypted Data</a></h3>
             <p class="pub-authors"><span class="me">Matan Avitan</span>, Moran Baruch, Nir Drucker, Itamar Zimerman, Yoav Goldberg</p>
+            <p class="pub-venue"><i>Findings of ACL, IJCNLP-AACL 2025</i> · First author</p>
             <p class="pub-desc">We introduce CutMax, an argmax algorithm for greedy decoding under homomorphic encryption, and a compatible nucleus sampling method for stochastic decoding. On realistic language-model outputs, the methods achieved speedups of 24× to 35× over the baselines we tested.</p>
             <ul class="pub-links">
-              <li><a class="btn-link" href="https://aclanthology.org/2025.findings-ijcnlp.111/">Paper <span aria-hidden="true">↗</span></a></li>
+              <li><a href="https://aclanthology.org/2025.findings-ijcnlp.111/">Paper</a></li>
             </ul>
-          </li>
-          <li class="card pub pub--side">
-            <div class="pub-fig">
-              <img src="assets/figs/counterfactuals-800.webp" srcset="assets/figs/counterfactuals-800.webp 800w, assets/figs/counterfactuals-1369.webp 1369w" sizes="(max-width: 52rem) 18rem, 15rem" alt="Figure 1 of A Practical Method for Generating String Counterfactuals. An original biography and three counterfactual versions from the MiMiC, LEACE, and MiMiC+ interventions." width="800" height="1187" loading="lazy" decoding="async">
-              <span class="fig-tag" aria-hidden="true">Fig. 1</span>
-            </div>
-            <p class="pub-meta"><span class="venue">Findings of ACL, NAACL 2025</span><span class="first-author">First author</span></p>
+          </div>
+        </li>
+        <li class="pub pub--tall">
+          <div class="pub-fig">
+            <img src="assets/figs/counterfactuals-800.webp" srcset="assets/figs/counterfactuals-800.webp 800w, assets/figs/counterfactuals-1369.webp 1369w" sizes="12rem" alt="Figure 1 of A Practical Method for Generating String Counterfactuals. An original biography and three counterfactual versions from the MiMiC, LEACE, and MiMiC+ interventions." width="800" height="1187" loading="lazy" decoding="async">
+          </div>
+          <div class="pub-text">
             <h3 class="pub-title"><a class="pub-main" href="https://aclanthology.org/2025.findings-naacl.180/">A Practical Method for Generating String Counterfactuals</a></h3>
             <p class="pub-authors"><span class="me">Matan Avitan</span>, Ryan Cotterell, Yoav Goldberg, Shauli Ravfogel</p>
+            <p class="pub-venue"><i>Findings of ACL, NAACL 2025</i> · First author</p>
             <p class="pub-desc">When we edit a model’s representation of a biography, what changes in the text? We turn edited representations back into readable counterfactuals, making it possible to inspect how an intervention changes the wording. We also use the resulting examples as training data to reduce gender bias in occupation classification.</p>
             <ul class="pub-links">
-              <li><a class="btn-link" href="https://aclanthology.org/2025.findings-naacl.180/">Paper <span aria-hidden="true">↗</span></a></li>
-              <li><a class="btn-link" href="https://github.com/MatanAvitan/rep-to-string-counterfactuals">Code <span aria-hidden="true">↗</span></a></li>
+              <li><a href="https://aclanthology.org/2025.findings-naacl.180/">Paper</a></li>
+              <li><a href="https://github.com/MatanAvitan/rep-to-string-counterfactuals">Code</a></li>
             </ul>
-          </li>
-        </ol>
-      </div>
+          </div>
+        </li>
+      </ol>
     </section>
 
     <section id="experience" class="section" aria-labelledby="experience-h">
-      <div class="section-head"><span class="section-index">03</span><h2 id="experience-h">Experience</h2></div>
-      <div class="section-body">
-        <ol class="timeline">
-          <li>
-            <div class="entry-head"><h3 class="entry-name">IBM Research</h3><p class="entry-dates">Feb 2024 to Jun 2026</p></div>
-            <p class="entry-sub">AI Research Scientist</p>
-            <p class="entry-desc">Developed algorithms for language-model inference under fully homomorphic encryption, including greedy and stochastic decoding. Explored speculative decoding under encryption. Named inventor on five patent applications, listed first on three.</p>
-          </li>
-          <li class="current">
-            <div class="entry-head"><h3 class="entry-name">Bar-Ilan University NLP Lab</h3><p class="entry-dates">2022 to present</p></div>
-            <p class="entry-sub">NLP Researcher</p>
-            <p class="entry-desc">Study Transformer circuits and representations using sparse decompositions, causal interventions, and counterfactual text generation.</p>
-          </li>
-          <li>
-            <div class="entry-head"><h3 class="entry-name">Similarweb</h3><p class="entry-dates">Jul 2021 to Feb 2023</p></div>
-            <p class="entry-sub">Data Scientist</p>
-            <p class="entry-desc">Built models for search traffic and ad costs.</p>
-          </li>
-          <li>
-            <div class="entry-head"><h3 class="entry-name">Cynet Security</h3><p class="entry-dates">Jun 2020 to Jul 2021</p></div>
-            <p class="entry-sub">Data Scientist</p>
-            <p class="entry-desc">Built malware-detection models.</p>
-          </li>
-          <li>
-            <div class="entry-head"><h3 class="entry-name">Trigo Vision</h3><p class="entry-dates">Feb to Jul 2020</p></div>
-            <p class="entry-sub">Deep Learning Intern</p>
-            <p class="entry-desc">Applied Noisy Student self-training to human pose estimation with limited labels. The project was recognized among the top five in the Y-DATA program.</p>
-          </li>
-          <li>
-            <div class="entry-head"><h3 class="entry-name">Unit 8200</h3><p class="entry-dates">2016 to 2020</p></div>
-            <p class="entry-sub">Python Developer</p>
-          </li>
-        </ol>
-      </div>
+      <h2 id="experience-h">Experience</h2>
+      <ol class="entries">
+        <li>
+          <div class="entry-head"><h3 class="entry-name">IBM Research</h3><p class="entry-dates">Feb 2024 to Jun 2026</p></div>
+          <p class="entry-sub">AI Research Scientist</p>
+          <p class="entry-desc">Developed algorithms for language-model inference under fully homomorphic encryption, including greedy and stochastic decoding. Explored speculative decoding under encryption. Named inventor on five patent applications, listed first on three.</p>
+        </li>
+        <li>
+          <div class="entry-head"><h3 class="entry-name">Bar-Ilan University NLP Lab</h3><p class="entry-dates">2022 to present</p></div>
+          <p class="entry-sub">NLP Researcher</p>
+          <p class="entry-desc">Study Transformer circuits and representations using sparse decompositions, causal interventions, and counterfactual text generation.</p>
+        </li>
+        <li>
+          <div class="entry-head"><h3 class="entry-name">Similarweb</h3><p class="entry-dates">Jul 2021 to Feb 2023</p></div>
+          <p class="entry-sub">Data Scientist</p>
+          <p class="entry-desc">Built models for search traffic and ad costs.</p>
+        </li>
+        <li>
+          <div class="entry-head"><h3 class="entry-name">Cynet Security</h3><p class="entry-dates">Jun 2020 to Jul 2021</p></div>
+          <p class="entry-sub">Data Scientist</p>
+          <p class="entry-desc">Built malware-detection models.</p>
+        </li>
+        <li>
+          <div class="entry-head"><h3 class="entry-name">Trigo Vision</h3><p class="entry-dates">Feb to Jul 2020</p></div>
+          <p class="entry-sub">Deep Learning Intern</p>
+          <p class="entry-desc">Applied Noisy Student self-training to human pose estimation with limited labels. The project was recognized among the top five in the Y-DATA program.</p>
+        </li>
+        <li>
+          <div class="entry-head"><h3 class="entry-name">Unit 8200</h3><p class="entry-dates">2016 to 2020</p></div>
+          <p class="entry-sub">Python Developer</p>
+        </li>
+      </ol>
     </section>
 
     <section id="education" class="section" aria-labelledby="education-h">
-      <div class="section-head"><span class="section-index">04</span><h2 id="education-h">Education</h2></div>
-      <div class="section-body">
-        <ol class="timeline">
-          <li class="current">
-            <div class="entry-head"><h3 class="entry-name">PhD in Computer Science</h3><p class="entry-dates">2025 to present</p></div>
-            <p class="entry-sub"><span class="nowrap">Bar-Ilan University</span>, NLP Lab</p>
-          </li>
-          <li>
-            <div class="entry-head"><h3 class="entry-name">MSc in Computer Science</h3><p class="entry-dates">2022 to 2025</p></div>
-            <p class="entry-sub"><span class="nowrap">Bar-Ilan University</span> · advised by Prof. Yoav Goldberg</p>
-          </li>
-          <li>
-            <div class="entry-head"><h3 class="entry-name">BSc in Computer Science</h3><p class="entry-dates">2017 to 2022</p></div>
-            <p class="entry-sub">The Open University of Israel</p>
-          </li>
-          <li>
-            <div class="entry-head"><h3 class="entry-name">Y-DATA applied data science program</h3><p class="entry-dates">2019 to 2020</p></div>
-            <p class="entry-sub">Yandex School of Data Science at Tel Aviv University</p>
-          </li>
-        </ol>
-      </div>
+      <h2 id="education-h">Education</h2>
+      <ol class="entries">
+        <li>
+          <div class="entry-head"><h3 class="entry-name">PhD in Computer Science</h3><p class="entry-dates">2025 to present</p></div>
+          <p class="entry-sub"><span class="nowrap">Bar-Ilan University</span>, NLP Lab</p>
+        </li>
+        <li>
+          <div class="entry-head"><h3 class="entry-name">MSc in Computer Science</h3><p class="entry-dates">2022 to 2025</p></div>
+          <p class="entry-sub"><span class="nowrap">Bar-Ilan University</span> · advised by Prof. Yoav Goldberg</p>
+        </li>
+        <li>
+          <div class="entry-head"><h3 class="entry-name">BSc in Computer Science</h3><p class="entry-dates">2017 to 2022</p></div>
+          <p class="entry-sub">The Open University of Israel</p>
+        </li>
+        <li>
+          <div class="entry-head"><h3 class="entry-name">Y-DATA applied data science program</h3><p class="entry-dates">2019 to 2020</p></div>
+          <p class="entry-sub">Yandex School of Data Science at Tel Aviv University</p>
+        </li>
+      </ol>
     </section>
 
     <section id="news" class="section" aria-labelledby="news-h">
-      <div class="section-head"><span class="section-index">05</span><h2 id="news-h">News</h2></div>
-      <div class="section-body">
-        <ul class="news">
-          <li><span class="news-date">December 2026</span><span>I’m heading to NeurIPS in Sydney. If you’ll be there and want to talk about interpretability or representation editing, feel free to reach out.</span></li>
-          <li><span class="news-date">September 2026</span><span>NeurIPS 2026 accepted two of my first-author papers: MANCE and <i>Position Without Positional Embeddings</i>.</span></li>
-          <li><span class="news-date">June 2026</span><span>I attended the Reinforcement Learning Summer School in Milan.</span></li>
-        </ul>
-      </div>
+      <h2 id="news-h">News</h2>
+      <ul class="news">
+        <li><span class="news-date">December 2026</span><span>I’m heading to NeurIPS in Sydney. If you’ll be there and want to talk about interpretability or representation editing, feel free to reach out.</span></li>
+        <li><span class="news-date">September 2026</span><span>NeurIPS 2026 accepted two of my first-author papers: MANCE and <i>Position Without Positional Embeddings</i>.</span></li>
+        <li><span class="news-date">June 2026</span><span>I attended the Reinforcement Learning Summer School in Milan.</span></li>
+      </ul>
     </section>
 
     <section id="contact" class="section" aria-labelledby="contact-h">
-      <div class="section-head"><span class="section-index">06</span><h2 id="contact-h">Contact</h2></div>
-      <div class="section-body">
-        <a class="contact-email" href="mailto:matan13av@gmail.com">matan13av@gmail.com</a>
-        <ul class="pills">
-          <li><a class="pill" href="https://scholar.google.com/citations?user=C7-1ULIAAAAJ"><svg class="icon" aria-hidden="true"><use href="#i-scholar"/></svg>Google Scholar</a></li>
-          <li><a class="pill" href="https://github.com/MatanAvitan"><svg class="icon" aria-hidden="true"><use href="#i-github"/></svg>GitHub</a></li>
-          <li><a class="pill" href="https://www.linkedin.com/in/matanavitan/"><svg class="icon" aria-hidden="true"><use href="#i-linkedin"/></svg>LinkedIn</a></li>
-          <li><a class="pill" href="https://x.com/matan_avitan_"><svg class="icon" aria-hidden="true"><use href="#i-x"/></svg>X</a></li>
-        </ul>
-      </div>
+      <h2 id="contact-h">Contact</h2>
+      <p class="contact-email"><a href="mailto:matan13av@gmail.com">matan13av@gmail.com</a></p>
+      <ul class="links">
+        <li><a href="https://scholar.google.com/citations?user=C7-1ULIAAAAJ"><svg class="icon" aria-hidden="true"><use href="#i-scholar"/></svg>Google Scholar</a></li>
+        <li><a href="https://github.com/MatanAvitan"><svg class="icon" aria-hidden="true"><use href="#i-github"/></svg>GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/matanavitan/"><svg class="icon" aria-hidden="true"><use href="#i-linkedin"/></svg>LinkedIn</a></li>
+        <li><a href="https://x.com/matan_avitan_"><svg class="icon" aria-hidden="true"><use href="#i-x"/></svg>X</a></li>
+      </ul>
     </section>
   </main>
 
   <footer class="container footer">
     <p>Last updated November 2026.</p>
-    <a href="#top">Back to top <span aria-hidden="true">↑</span></a>
+    <a href="#top">Back to top</a>
   </footer>
 </body>
 </html>

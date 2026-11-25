@@ -137,8 +137,8 @@
   var CAMERA = 38;
 
   var points = [];
-  var colorA = [180, 70, 29];
-  var colorB = [122, 78, 156];
+  var colorA = [230, 231, 233];
+  var colorB = [158, 163, 171];
   var W = 0, H = 0, dpr = 1, cx = 0, cy = 0, scale = 1;
   var spin = 0.6, tiltX = 0, tiltY = 0, targetX = 0, targetY = 0;
   var running = false, orbitVisible = true, rafId = 0, lastFrame = 0, clock = 0;
@@ -152,13 +152,9 @@
 
   function readColors() {
     var cs = getComputedStyle(root);
-    colorA = parseHex(cs.getPropertyValue("--accent"), colorA);
-    colorB = parseHex(cs.getPropertyValue("--accent-2"), colorB);
-    // In dark mode the dimmed sunset sky is close to the accent colors, so lighten the points.
-    if (root.dataset.theme === "dark") {
-      colorA = colorA.map(function (v) { return Math.round(v + (255 - v) * 0.45); });
-      colorB = colorB.map(function (v) { return Math.round(v + (255 - v) * 0.45); });
-    }
+    // Neutral points: the text color at the inner turn, the muted color at the outer turn.
+    colorA = parseHex(cs.getPropertyValue("--fg"), colorA);
+    colorB = parseHex(cs.getPropertyValue("--muted"), colorB);
     points.forEach(function (p) {
       var r = Math.round(colorA[0] + (colorB[0] - colorA[0]) * p.c);
       var g = Math.round(colorA[1] + (colorB[1] - colorA[1]) * p.c);
