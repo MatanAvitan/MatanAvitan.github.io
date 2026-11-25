@@ -1,4 +1,4 @@
-// Theme switch, top bar state, active section link, figure lightbox, and the hero portrait manifold.
+// Theme switch, top bar state, active section link, and the hero portrait manifold.
 (function () {
   "use strict";
 
@@ -75,33 +75,6 @@
     Object.keys(byId).forEach(function (id) {
       var section = document.getElementById(id);
       if (section) spy.observe(section);
-    });
-  }
-
-  // ---- Figure 1 lightbox: a click on a paper figure opens it full size ----
-
-  var lightbox = document.querySelector(".lightbox");
-  if (lightbox && typeof lightbox.showModal === "function") {
-    var lightboxImg = lightbox.querySelector(".lightbox-img");
-    var lightboxCap = lightbox.querySelector(".lightbox-cap");
-    Array.prototype.forEach.call(document.querySelectorAll(".pub-fig"), function (link) {
-      link.addEventListener("click", function (e) {
-        if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
-        e.preventDefault();
-        var thumb = link.querySelector("img");
-        var title = link.closest(".pub").querySelector(".pub-title");
-        lightboxImg.src = link.href;
-        lightboxImg.alt = thumb ? thumb.alt : "";
-        lightboxCap.textContent = "Figure 1 · " + (title ? title.textContent : "");
-        lightbox.showModal();
-      });
-    });
-    lightbox.querySelector(".lightbox-close").addEventListener("click", function () {
-      lightbox.close();
-    });
-    // A click on the backdrop lands on the dialog itself.
-    lightbox.addEventListener("click", function (e) {
-      if (e.target === lightbox) lightbox.close();
     });
   }
 

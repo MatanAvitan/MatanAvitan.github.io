@@ -44,7 +44,6 @@
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
         <li><a href="#publications">Publications</a></li>
-        <li><a href="#interests">Interests</a></li>
         <li><a href="#experience">Experience</a></li>
         <li><a href="#news">News</a></li>
         <li><a href="#contact">Contact</a></li>
@@ -106,12 +105,12 @@
       <div class="section-body">
         <ol class="pubs">
           <li class="card pub">
-            <a class="pub-fig" href="assets/figs/mance-2400.webp">
+            <div class="pub-fig">
               <img src="assets/figs/mance-800.webp" srcset="assets/figs/mance-800.webp 800w, assets/figs/mance-1600.webp 1600w" sizes="(max-width: 52rem) calc(100vw - 5rem), 52rem" alt="Figure 1 of MANCE. Three panels show the representation manifold, an unconstrained erasure step that leaves the manifold, and a MANCE step that stays on the tangent plane." width="800" height="259" loading="lazy" decoding="async">
               <span class="fig-tag" aria-hidden="true">Fig. 1</span>
-            </a>
+            </div>
             <p class="pub-meta"><span class="venue">NeurIPS 2026</span><span class="first-author">First author</span></p>
-            <h3 class="pub-title">MANCE: Manifold-Aware Concept Erasure</h3>
+            <h3 class="pub-title"><a class="pub-main" href="https://arxiv.org/abs/2607.03973">MANCE: Manifold-Aware Concept Erasure</a></h3>
             <p class="pub-authors"><span class="me">Matan Avitan</span>, Yoav Goldberg, Yanai Elazar</p>
             <p class="pub-desc">Can we erase a concept from a model’s representation while preserving other information encoded alongside it? MANCE estimates the local geometry of naturally occurring activations and uses it to constrain each edit. Across 119 settings in language and vision, these constraints improved the trade-off between removing the target concept and preserving other attributes.</p>
             <ul class="pub-links">
@@ -120,12 +119,12 @@
             </ul>
           </li>
           <li class="card pub">
-            <a class="pub-fig" href="assets/figs/nope-2400.webp">
+            <div class="pub-fig">
               <img src="assets/figs/nope-800.webp" srcset="assets/figs/nope-800.webp 800w, assets/figs/nope-1600.webp 1600w" sizes="(max-width: 52rem) calc(100vw - 5rem), 52rem" alt="Figure 1 of Position Without Positional Embeddings. In five steps over two layers, a noisy attention signal to the BOS token becomes a position signal that later layers can read." width="800" height="320" loading="lazy" decoding="async">
               <span class="fig-tag" aria-hidden="true">Fig. 1</span>
-            </a>
+            </div>
             <p class="pub-meta"><span class="venue">NeurIPS 2026</span><span class="first-author">First author</span></p>
-            <h3 class="pub-title">Position Without Positional Embeddings: A Directional Mechanism in NoPE Transformers</h3>
+            <h3 class="pub-title"><a class="pub-main" href="https://neurips.cc/virtual/2026/poster/152488">Position Without Positional Embeddings: A Directional Mechanism in NoPE Transformers</a></h3>
             <p class="pub-authors"><span class="me">Matan Avitan</span>, Ido Nachum, Yanai Elazar, Yoav Goldberg</p>
             <p class="pub-desc">How does a Transformer know whether a token is the fifth or the fiftieth without positional embeddings? We identify a two-block circuit that uses the beginning-of-sequence token as a shared reference. Attention to that token falls predictably as the prefix grows, approximately as <span class="math"><i>k</i>/(<i>k</i>&#8202;+&#8202;<i>i</i>)</span>. The circuit writes that signal into an activation direction that survives LayerNorm. We find the mechanism in trained models, including a language model trained on next-token prediction.</p>
             <ul class="pub-links">
@@ -133,12 +132,12 @@
             </ul>
           </li>
           <li class="card pub">
-            <a class="pub-fig" href="assets/figs/powersoftmax-2400.webp">
+            <div class="pub-fig">
               <img src="assets/figs/powersoftmax-800.webp" srcset="assets/figs/powersoftmax-800.webp 800w, assets/figs/powersoftmax-1600.webp 1600w" sizes="(max-width: 52rem) calc(100vw - 5rem), 52rem" alt="Figure 1 of PowerSoftmax. Three plots compare softmax with power normalization for p equal to 2, 4, and 8 on normal, uniform, and evenly spaced inputs." width="800" height="197" loading="lazy" decoding="async">
               <span class="fig-tag" aria-hidden="true">Fig. 1</span>
-            </a>
+            </div>
             <p class="pub-meta"><span class="venue">AISTATS 2026</span></p>
-            <h3 class="pub-title">PowerSoftmax: Towards Secure LLM Inference Over Encrypted Data</h3>
+            <h3 class="pub-title"><a class="pub-main" href="https://proceedings.mlr.press/v300/zimerman26a.html">PowerSoftmax: Towards Secure LLM Inference Over Encrypted Data</a></h3>
             <p class="pub-authors">Itamar Zimerman, Allon Adir, Ehud Aharoni, <span class="me">Matan Avitan</span>, Moran Baruch, Nir Drucker, Jenny Lerner, Ramy Masalha, Reut Moshe, Omri Soceanu</p>
             <p class="pub-desc">We develop a self-attention mechanism that polynomials can approximate efficiently, which makes homomorphic inference practical. We use it to train language models with over a billion parameters. We presented an earlier version of this work at FHE.org 2025.</p>
             <ul class="pub-links">
@@ -147,12 +146,12 @@
             </ul>
           </li>
           <li class="card pub">
-            <a class="pub-fig" href="assets/figs/decoding-1600.webp">
+            <div class="pub-fig">
               <img src="assets/figs/decoding-800.webp" srcset="assets/figs/decoding-800.webp 800w, assets/figs/decoding-1600.webp 1600w" sizes="(max-width: 52rem) calc(100vw - 5rem), 52rem" alt="Figure 1 of Efficient Decoding Methods. A client sends an encrypted input, the server runs the language model, and an argmax or sampling step under encryption selects each next token." width="800" height="318" loading="lazy" decoding="async">
               <span class="fig-tag" aria-hidden="true">Fig. 1</span>
-            </a>
+            </div>
             <p class="pub-meta"><span class="venue">Findings of ACL, IJCNLP-AACL 2025</span><span class="first-author">First author</span></p>
-            <h3 class="pub-title">Efficient Decoding Methods for Language Models on Encrypted Data</h3>
+            <h3 class="pub-title"><a class="pub-main" href="https://aclanthology.org/2025.findings-ijcnlp.111/">Efficient Decoding Methods for Language Models on Encrypted Data</a></h3>
             <p class="pub-authors"><span class="me">Matan Avitan</span>, Moran Baruch, Nir Drucker, Itamar Zimerman, Yoav Goldberg</p>
             <p class="pub-desc">We introduce CutMax, an argmax algorithm for greedy decoding under homomorphic encryption, and a compatible nucleus sampling method for stochastic decoding. On realistic language-model outputs, the methods achieved speedups of 24× to 35× over the baselines we tested.</p>
             <ul class="pub-links">
@@ -160,12 +159,12 @@
             </ul>
           </li>
           <li class="card pub pub--side">
-            <a class="pub-fig" href="assets/figs/counterfactuals-1369.webp">
+            <div class="pub-fig">
               <img src="assets/figs/counterfactuals-800.webp" srcset="assets/figs/counterfactuals-800.webp 800w, assets/figs/counterfactuals-1369.webp 1369w" sizes="(max-width: 52rem) 18rem, 15rem" alt="Figure 1 of A Practical Method for Generating String Counterfactuals. An original biography and three counterfactual versions from the MiMiC, LEACE, and MiMiC+ interventions." width="800" height="1187" loading="lazy" decoding="async">
               <span class="fig-tag" aria-hidden="true">Fig. 1</span>
-            </a>
+            </div>
             <p class="pub-meta"><span class="venue">Findings of ACL, NAACL 2025</span><span class="first-author">First author</span></p>
-            <h3 class="pub-title">A Practical Method for Generating String Counterfactuals</h3>
+            <h3 class="pub-title"><a class="pub-main" href="https://aclanthology.org/2025.findings-naacl.180/">A Practical Method for Generating String Counterfactuals</a></h3>
             <p class="pub-authors"><span class="me">Matan Avitan</span>, Ryan Cotterell, Yoav Goldberg, Shauli Ravfogel</p>
             <p class="pub-desc">When we edit a model’s representation of a biography, what changes in the text? We turn edited representations back into readable counterfactuals, making it possible to inspect how an intervention changes the wording. We also use the resulting examples as training data to reduce gender bias in occupation classification.</p>
             <ul class="pub-links">
@@ -177,41 +176,8 @@
       </div>
     </section>
 
-    <section id="interests" class="section" aria-labelledby="interests-h">
-      <div class="section-head"><span class="section-index">03</span><h2 id="interests-h">Research interests</h2></div>
-      <div class="section-body">
-        <ul class="interests">
-          <li class="card">
-            <span class="card-index">i.</span>
-            <h3>Superposition and sparse feature learning</h3>
-            <p>How do models encode more features than they have activation dimensions? I’m interested in using sparse autoencoders and dictionary learning to study how features share directions and how an edit to one feature affects others.</p>
-          </li>
-          <li class="card">
-            <span class="card-index">ii.</span>
-            <h3>How training shapes learned mechanisms</h3>
-            <p>I’m interested in when a circuit emerges, how the objective and initialization affect it, and whether the model relies on it when making predictions.</p>
-          </li>
-          <li class="card">
-            <span class="card-index">iii.</span>
-            <h3>World models and learned dynamics</h3>
-            <p>Can we recover a simple physical rule, such as constant-velocity motion, directly from a model’s activations? I’m interested in what a change of basis or a symbolic readout can reveal.</p>
-          </li>
-          <li class="card">
-            <span class="card-index">iv.</span>
-            <h3>Embedding inversion and reinforcement learning</h3>
-            <p>I’ve been exploring how a learned value function could guide text generation toward a target embedding. The value function estimates which partial strings are likely to end in a good match.</p>
-          </li>
-          <li class="card">
-            <span class="card-index">v.</span>
-            <h3>Diversity in open-ended generation</h3>
-            <p>I’m interested in how to generate several legitimate answers to the same question and measure whether they differ in substance.</p>
-          </li>
-        </ul>
-      </div>
-    </section>
-
     <section id="experience" class="section" aria-labelledby="experience-h">
-      <div class="section-head"><span class="section-index">04</span><h2 id="experience-h">Experience</h2></div>
+      <div class="section-head"><span class="section-index">03</span><h2 id="experience-h">Experience</h2></div>
       <div class="section-body">
         <ol class="timeline">
           <li>
@@ -227,12 +193,12 @@
           <li>
             <div class="entry-head"><h3 class="entry-name">Similarweb</h3><p class="entry-dates">Jul 2021 to Feb 2023</p></div>
             <p class="entry-sub">Data Scientist</p>
-            <p class="entry-desc">Built models for search-result traffic, click-through rates, ad cost per click, and zero-click searches. Expanded keyword coverage by roughly 120× and deployed data pipelines with PySpark and Airflow.</p>
+            <p class="entry-desc">Built models for search traffic and ad costs.</p>
           </li>
           <li>
             <div class="entry-head"><h3 class="entry-name">Cynet Security</h3><p class="entry-dates">Jun 2020 to Jul 2021</p></div>
             <p class="entry-sub">Data Scientist</p>
-            <p class="entry-desc">Built and deployed endpoint malware-detection models. Improved the true-positive rate by 5.6% and reduced the false-positive rate by a factor of roughly 12. Built labeling pipelines and tools for security analysts.</p>
+            <p class="entry-desc">Built malware-detection models.</p>
           </li>
           <li>
             <div class="entry-head"><h3 class="entry-name">Trigo Vision</h3><p class="entry-dates">Feb to Jul 2020</p></div>
@@ -242,39 +208,37 @@
           <li>
             <div class="entry-head"><h3 class="entry-name">Unit 8200</h3><p class="entry-dates">2016 to 2020</p></div>
             <p class="entry-sub">Python Developer</p>
-            <p class="entry-desc">Developed on-premises cloud infrastructure and built monitoring and telemetry tools for distributed systems.</p>
           </li>
         </ol>
-        <p class="after-list">I’ve also interviewed and mentored data scientists and Python developers. My research stack is mainly Python, PyTorch, and NumPy. My production work has also used SQL, PySpark, Databricks, Airflow, Docker, and Linux.</p>
       </div>
     </section>
 
     <section id="education" class="section" aria-labelledby="education-h">
-      <div class="section-head"><span class="section-index">05</span><h2 id="education-h">Education</h2></div>
+      <div class="section-head"><span class="section-index">04</span><h2 id="education-h">Education</h2></div>
       <div class="section-body">
         <ol class="timeline">
           <li class="current">
-            <div class="entry-head"><h3 class="entry-name">PhD in Computer Science</h3><p class="entry-dates">Oct 2025 to present</p></div>
+            <div class="entry-head"><h3 class="entry-name">PhD in Computer Science</h3><p class="entry-dates">2025 to present</p></div>
             <p class="entry-sub"><span class="nowrap">Bar-Ilan University</span>, NLP Lab</p>
           </li>
           <li>
             <div class="entry-head"><h3 class="entry-name">MSc in Computer Science</h3><p class="entry-dates">2022 to 2025</p></div>
-            <p class="entry-sub"><span class="nowrap">Bar-Ilan University</span> · advised by Prof. Yoav Goldberg · GPA 95</p>
+            <p class="entry-sub"><span class="nowrap">Bar-Ilan University</span> · advised by Prof. Yoav Goldberg</p>
           </li>
           <li>
             <div class="entry-head"><h3 class="entry-name">BSc in Computer Science</h3><p class="entry-dates">2017 to 2022</p></div>
-            <p class="entry-sub">The Open University of Israel · GPA 89</p>
+            <p class="entry-sub">The Open University of Israel</p>
           </li>
           <li>
             <div class="entry-head"><h3 class="entry-name">Y-DATA applied data science program</h3><p class="entry-dates">2019 to 2020</p></div>
-            <p class="entry-sub">Yandex School of Data Science at Tel Aviv University · GPA 97</p>
+            <p class="entry-sub">Yandex School of Data Science at Tel Aviv University</p>
           </li>
         </ol>
       </div>
     </section>
 
     <section id="news" class="section" aria-labelledby="news-h">
-      <div class="section-head"><span class="section-index">06</span><h2 id="news-h">News</h2></div>
+      <div class="section-head"><span class="section-index">05</span><h2 id="news-h">News</h2></div>
       <div class="section-body">
         <ul class="news">
           <li><span class="news-date">December 2026</span><span>I’m heading to NeurIPS in Sydney. If you’ll be there and want to talk about interpretability or representation editing, feel free to reach out.</span></li>
@@ -285,7 +249,7 @@
     </section>
 
     <section id="contact" class="section" aria-labelledby="contact-h">
-      <div class="section-head"><span class="section-index">07</span><h2 id="contact-h">Contact</h2></div>
+      <div class="section-head"><span class="section-index">06</span><h2 id="contact-h">Contact</h2></div>
       <div class="section-body">
         <a class="contact-email" href="mailto:matan13av@gmail.com">matan13av@gmail.com</a>
         <ul class="pills">
@@ -302,10 +266,5 @@
     <p>Last updated November 2026.</p>
     <a href="#top">Back to top <span aria-hidden="true">↑</span></a>
   </footer>
-  <dialog class="lightbox" aria-label="Figure">
-    <button class="lightbox-close" type="button" aria-label="Close figure">×</button>
-    <img class="lightbox-img" src="data:," alt="">
-    <p class="lightbox-cap"></p>
-  </dialog>
 </body>
 </html>
