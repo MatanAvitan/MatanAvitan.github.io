@@ -56,6 +56,7 @@
   --accent-2: #7a4e9c;
   --sky-top: #b29493;
   --photo-filter: none;
+  --fig-filter: none;
   --shadow: 0 1px 2px rgb(28 22 20 / 0.05), 0 10px 30px -16px rgb(28 22 20 / 0.2);
   --serif: "Instrument Serif", "Iowan Old Style", Palatino, Georgia, serif;
   --sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
@@ -75,6 +76,7 @@
   --accent-2: #c8a6ea;
   --sky-top: #806a6a;
   --photo-filter: brightness(0.72) saturate(1.05);
+  --fig-filter: brightness(0.88);
   --shadow: 0 1px 2px rgb(0 0 0 / 0.3), 0 16px 40px -20px rgb(0 0 0 / 0.7);
 }
 
@@ -91,6 +93,7 @@
     --accent-2: #c8a6ea;
     --sky-top: #806a6a;
     --photo-filter: brightness(0.72) saturate(1.05);
+    --fig-filter: brightness(0.88);
     --shadow: 0 1px 2px rgb(0 0 0 / 0.3), 0 16px 40px -20px rgb(0 0 0 / 0.7);
   }
 }
@@ -366,19 +369,10 @@ a {
 .hero h1 {
   margin: 0;
   font-family: var(--serif);
-  font-size: clamp(3.6rem, 9.5vw, 6.6rem);
+  font-size: clamp(2.8rem, 6.4vw, 4.4rem);
   font-weight: 400;
-  line-height: 0.95;
-  letter-spacing: -0.02em;
-}
-
-.h1-accent {
-  padding-right: 0.08em;
-  background: linear-gradient(100deg, var(--accent-2) 5%, var(--accent) 85%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  font-style: italic;
+  line-height: 1;
+  letter-spacing: -0.015em;
 }
 
 .tagline {
@@ -426,15 +420,7 @@ a {
   transform: translateY(-2px);
 }
 
-/* About: text beside the portrait, which sits inside the turning manifold. */
-
-.section-body.about-body {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 19rem;
-  align-items: center;
-  gap: 2.5rem;
-  max-width: none;
-}
+/* About */
 
 .about-text p {
   margin: 0 0 1.1rem;
@@ -444,12 +430,26 @@ a {
   margin-bottom: 0;
 }
 
+/* Hero portrait: the manifold and the photo sit at the upper right of the tree.
+   main.js moves the center onto the tree; these values are the fallback. */
+
 .orbit {
-  position: relative;
+  position: absolute;
+  top: calc(var(--topbar-h) + 2rem);
+  right: 6%;
+  z-index: 0;
   display: grid;
   place-items: center;
-  width: 19rem;
+  width: clamp(12rem, 21vw, 17rem);
   aspect-ratio: 1;
+  pointer-events: none;
+}
+
+.orbit.placed {
+  top: 0;
+  right: auto;
+  left: 0;
+  transform: translate(var(--orbit-x), var(--orbit-y)) translate(-50%, -50%);
 }
 
 .orbit::before {
@@ -457,7 +457,7 @@ a {
   position: absolute;
   inset: 8%;
   border-radius: 50%;
-  background: radial-gradient(closest-side, color-mix(in srgb, var(--accent) 14%, transparent), transparent);
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--bg) 34%, transparent), transparent);
 }
 
 .orbit-canvas {
@@ -465,24 +465,23 @@ a {
   inset: 0;
   width: 100%;
   height: 100%;
-  pointer-events: none;
 }
 
 .portrait-ring {
   position: relative;
-  width: 9.5rem;
+  width: 50%;
   aspect-ratio: 1;
   padding: 3px;
   border-radius: 50%;
   background: conic-gradient(from 210deg, var(--accent-2), var(--accent), var(--accent-2));
-  box-shadow: 0 24px 60px -24px color-mix(in srgb, var(--accent) 60%, transparent);
+  box-shadow: 0 24px 60px -24px rgb(0 0 0 / 0.55);
 }
 
 .portrait {
   display: block;
   width: 100%;
   height: 100%;
-  border: 5px solid var(--bg);
+  border: 4px solid var(--bg);
   border-radius: 50%;
   background: var(--chip);
   object-fit: cover;
@@ -652,6 +651,134 @@ main {
 .btn-link:hover {
   border-color: var(--accent);
   color: var(--accent);
+}
+
+/* Figure 1 of each paper. The panel is white because the figures are. */
+
+.pub-fig {
+  position: relative;
+  display: block;
+  margin: 0 0 1.1rem;
+  padding: 0.85rem 0.85rem 1.9rem;
+  border: 1px solid var(--rule);
+  border-radius: 0.75rem;
+  overflow: hidden;
+  background: #fff;
+  cursor: zoom-in;
+  filter: var(--fig-filter);
+}
+
+.pub-fig img {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: transform 0.4s;
+}
+
+.pub-fig:hover img {
+  transform: scale(1.015);
+}
+
+.pub-fig:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.fig-tag {
+  position: absolute;
+  right: 0.75rem;
+  bottom: 0.5rem;
+  color: #6a5d56;
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.02em;
+}
+
+.fig-tag::after {
+  content: " · enlarge";
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.pub-fig:hover .fig-tag::after,
+.pub-fig:focus-visible .fig-tag::after {
+  opacity: 1;
+}
+
+/* A tall figure sits beside the text instead of above it. */
+.pub--side {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 15rem;
+  column-gap: 1.75rem;
+  align-items: start;
+}
+
+.pub--side > * {
+  grid-column: 1;
+}
+
+.pub--side > .pub-fig {
+  grid-column: 2;
+  grid-row: 1 / span 5;
+  margin: 0;
+}
+
+.lightbox {
+  width: min(96vw, 110rem);
+  max-width: none;
+  max-height: 94vh;
+  padding: 0;
+  border: 0;
+  border-radius: 1rem;
+  overflow: hidden;
+  background: #fff;
+  color: #1c1614;
+  box-shadow: 0 30px 80px -20px rgb(0 0 0 / 0.6);
+}
+
+.lightbox::backdrop {
+  background: rgb(10 8 7 / 0.8);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+}
+
+.lightbox-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: calc(94vh - 3.5rem);
+  padding: 1.25rem 1.25rem 0;
+  object-fit: contain;
+}
+
+.lightbox-cap {
+  margin: 0;
+  padding: 0.75rem 1.25rem 1rem;
+  color: #6a5d56;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.6rem;
+  display: grid;
+  place-items: center;
+  width: 2.2rem;
+  height: 2.2rem;
+  border: 1px solid #e8ded4;
+  border-radius: 50%;
+  background: #fffdfa;
+  color: #1c1614;
+  font-size: 1.3rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.lightbox-close:hover {
+  border-color: #b4461d;
+  color: #b4461d;
 }
 
 /* Research interests */
@@ -874,18 +1001,26 @@ main {
 
   .hero-inner {
     min-height: 0;
-    padding-block: 2.5rem calc(62vw + 1rem);
-  }
-
-  .section-body.about-body {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 1.5rem;
+    padding-block: 2.5rem calc(62vw + 8rem);
   }
 
   .orbit {
-    order: -1;
-    justify-self: center;
-    width: min(19rem, 100%);
+    width: 10rem;
+  }
+
+  .pub--side {
+    display: block;
+  }
+
+  .pub--side > .pub-fig {
+    margin: 0 0 1.1rem;
+  }
+
+  .pub--side .pub-fig img {
+    width: auto;
+    max-width: 100%;
+    max-height: 24rem;
+    margin-inline: auto;
   }
 
   .section {

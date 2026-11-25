@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Matan Avitan</title>
-  <meta name="description" content="Matan Avitan works on algorithms, mechanistic interpretability, and the geometry of learned representations in neural networks.">
+  <meta name="description" content="Matan Avitan studies how neural networks represent information and use it to make predictions, through mechanistic interpretability, representation geometry, and efficient algorithms.">
   <link rel="canonical" href="https://matanavitan.github.io/">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Matan Avitan">
@@ -19,9 +19,7 @@
     (function () {
       var theme = null;
       try { theme = localStorage.getItem("theme"); } catch (e) {}
-      if (theme !== "light" && theme !== "dark") {
-        theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-      }
+      if (theme !== "light") theme = "dark";
       document.documentElement.dataset.theme = theme;
     })();
   </script>
@@ -65,12 +63,18 @@
       <source type="image/webp" srcset="assets/sunset-wide-1600.webp 1600w, assets/sunset-wide-2400.webp 2400w" sizes="100vw">
       <img src="assets/sunset-wide-1600.jpg" srcset="assets/sunset-wide-1600.jpg 1600w, assets/sunset-wide-2400.jpg 2400w" sizes="100vw" alt="" width="1600" height="1296" fetchpriority="high">
     </picture>
+    <div class="orbit">
+      <canvas class="orbit-canvas" aria-hidden="true"></canvas>
+      <div class="portrait-ring">
+        <img class="portrait" src="assets/photo.jpg" alt="Portrait of Matan Avitan" width="400" height="400">
+      </div>
+    </div>
     <div class="container hero-inner">
       <div class="hero-text">
-        <p class="eyebrow">Algorithms · Mechanistic interpretability · Representation geometry</p>
-        <h1>Matan <span class="h1-accent">Avitan</span></h1>
+        <p class="eyebrow">Mechanistic interpretability · Representation geometry · Algorithms</p>
+        <h1>Matan Avitan</h1>
         <p class="tagline">AI researcher and computer science PhD candidate at <span class="nowrap">Bar-Ilan University</span></p>
-        <p class="lead">I work on algorithms, mechanistic interpretability, and the geometry of learned representations in neural networks.</p>
+        <p class="lead">I study how neural networks represent information and how they use it to make predictions. My work combines mechanistic interpretability, representation geometry, and efficient algorithms.</p>
         <ul class="pills">
           <li><a class="pill" href="mailto:matan13av@gmail.com"><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg>Email</a></li>
           <li><a class="pill" href="https://scholar.google.com/citations?user=C7-1ULIAAAAJ"><svg class="icon" aria-hidden="true"><use href="#i-scholar"/></svg>Google Scholar</a></li>
@@ -85,18 +89,14 @@
   <main id="main" class="container">
     <section id="about" class="section" aria-labelledby="about-h">
       <div class="section-head"><span class="section-index">01</span><h2 id="about-h">About</h2></div>
-      <div class="section-body about-body">
+      <div class="section-body">
         <div class="about-text">
           <p>I am a PhD candidate in the NLP Lab at <span class="nowrap">Bar-Ilan University</span>. I am advised by Prof. Yoav Goldberg and Dr. Yanai Elazar.</p>
-          <p>I am interested in algorithms and how neural networks organize information. I developed CutMax, an efficient argmax algorithm for language models on encrypted data, and a method for sampling on encrypted data.<sup><a href="https://aclanthology.org/2025.findings-ijcnlp.111/" aria-label="Reference 1: Efficient Decoding Methods for Language Models on Encrypted Data">[1]</a></sup></p>
-          <p>I study how neural networks organize data on manifolds rather than in linear spaces. This perspective led to MANCE, a concept erasure method accepted to NeurIPS 2026.<sup><a href="https://arxiv.org/abs/2607.03973" aria-label="Reference 2: MANCE: Manifold-Aware Concept Erasure">[2]</a></sup></p>
-          <p>I also presented the first full mechanism explaining how Transformers learn absolute token positions without positional embeddings.<sup><a href="https://neurips.cc/virtual/2026/poster/152488" aria-label="Reference 3: Position Without Positional Embeddings">[3]</a></sup> The work combines theory with evidence from trained models and was accepted to the NeurIPS 2026 main track.</p>
-        </div>
-        <div class="orbit">
-          <canvas class="orbit-canvas" aria-hidden="true"></canvas>
-          <div class="portrait-ring">
-            <img class="portrait" src="assets/photo.jpg" alt="Portrait of Matan Avitan" width="400" height="400" loading="lazy">
-          </div>
+          <p>My research asks what happens inside a neural network when it makes a prediction. I want to know what information a model stores, how it organizes that information, and how it uses it. The answers let us explain model behavior and change it in a controlled way.</p>
+          <p>One part of my work studies the geometry of representations. Neural networks often organize data on manifolds rather than in linear spaces. This perspective led to MANCE, a concept erasure method accepted to NeurIPS 2026.<sup><a href="https://arxiv.org/abs/2607.03973" aria-label="Reference 1: MANCE: Manifold-Aware Concept Erasure">[1]</a></sup></p>
+          <p>Another part looks for the mechanisms that models learn. I presented the first full mechanism explaining how Transformers learn absolute token positions without positional embeddings.<sup><a href="https://neurips.cc/virtual/2026/poster/152488" aria-label="Reference 2: Position Without Positional Embeddings">[2]</a></sup> The work combines theory with evidence from trained models and was accepted to the NeurIPS 2026 main track.</p>
+          <p>I am also interested in counterfactual generation and how it helps interpretability and bias mitigation. I developed a method that turns edited representations back into readable text. We used the resulting counterfactuals to reduce gender bias in a classifier.<sup><a href="https://aclanthology.org/2025.findings-naacl.180/" aria-label="Reference 3: A Practical Method for Generating String Counterfactuals">[3]</a></sup></p>
+          <p>Finally, I design algorithms that let language models generate text on encrypted data. I developed CutMax, an efficient argmax algorithm, and a method for sampling under encryption.<sup><a href="https://aclanthology.org/2025.findings-ijcnlp.111/" aria-label="Reference 4: Efficient Decoding Methods for Language Models on Encrypted Data">[4]</a></sup></p>
         </div>
       </div>
     </section>
@@ -106,6 +106,10 @@
       <div class="section-body">
         <ol class="pubs">
           <li class="card pub">
+            <a class="pub-fig" href="assets/figs/mance-2400.webp">
+              <img src="assets/figs/mance-800.webp" srcset="assets/figs/mance-800.webp 800w, assets/figs/mance-1600.webp 1600w" sizes="(max-width: 52rem) calc(100vw - 5rem), 52rem" alt="Figure 1 of MANCE. Three panels show the representation manifold, an unconstrained erasure step that leaves the manifold, and a MANCE step that stays on the tangent plane." width="800" height="259" loading="lazy" decoding="async">
+              <span class="fig-tag" aria-hidden="true">Fig. 1</span>
+            </a>
             <p class="pub-meta"><span class="venue">NeurIPS 2026</span><span class="first-author">First author</span></p>
             <h3 class="pub-title">MANCE: Manifold-Aware Concept Erasure</h3>
             <p class="pub-authors"><span class="me">Matan Avitan</span>, Yoav Goldberg, Yanai Elazar</p>
@@ -116,6 +120,10 @@
             </ul>
           </li>
           <li class="card pub">
+            <a class="pub-fig" href="assets/figs/nope-2400.webp">
+              <img src="assets/figs/nope-800.webp" srcset="assets/figs/nope-800.webp 800w, assets/figs/nope-1600.webp 1600w" sizes="(max-width: 52rem) calc(100vw - 5rem), 52rem" alt="Figure 1 of Position Without Positional Embeddings. In five steps over two layers, a noisy attention signal to the BOS token becomes a position signal that later layers can read." width="800" height="320" loading="lazy" decoding="async">
+              <span class="fig-tag" aria-hidden="true">Fig. 1</span>
+            </a>
             <p class="pub-meta"><span class="venue">NeurIPS 2026</span><span class="first-author">First author</span></p>
             <h3 class="pub-title">Position Without Positional Embeddings: A Directional Mechanism in NoPE Transformers</h3>
             <p class="pub-authors"><span class="me">Matan Avitan</span>, Ido Nachum, Yanai Elazar, Yoav Goldberg</p>
@@ -125,6 +133,10 @@
             </ul>
           </li>
           <li class="card pub">
+            <a class="pub-fig" href="assets/figs/powersoftmax-2400.webp">
+              <img src="assets/figs/powersoftmax-800.webp" srcset="assets/figs/powersoftmax-800.webp 800w, assets/figs/powersoftmax-1600.webp 1600w" sizes="(max-width: 52rem) calc(100vw - 5rem), 52rem" alt="Figure 1 of PowerSoftmax. Three plots compare softmax with power normalization for p equal to 2, 4, and 8 on normal, uniform, and evenly spaced inputs." width="800" height="197" loading="lazy" decoding="async">
+              <span class="fig-tag" aria-hidden="true">Fig. 1</span>
+            </a>
             <p class="pub-meta"><span class="venue">AISTATS 2026</span></p>
             <h3 class="pub-title">PowerSoftmax: Towards Secure LLM Inference Over Encrypted Data</h3>
             <p class="pub-authors">Itamar Zimerman, Allon Adir, Ehud Aharoni, <span class="me">Matan Avitan</span>, Moran Baruch, Nir Drucker, Jenny Lerner, Ramy Masalha, Reut Moshe, Omri Soceanu</p>
@@ -135,6 +147,10 @@
             </ul>
           </li>
           <li class="card pub">
+            <a class="pub-fig" href="assets/figs/decoding-1600.webp">
+              <img src="assets/figs/decoding-800.webp" srcset="assets/figs/decoding-800.webp 800w, assets/figs/decoding-1600.webp 1600w" sizes="(max-width: 52rem) calc(100vw - 5rem), 52rem" alt="Figure 1 of Efficient Decoding Methods. A client sends an encrypted input, the server runs the language model, and an argmax or sampling step under encryption selects each next token." width="800" height="318" loading="lazy" decoding="async">
+              <span class="fig-tag" aria-hidden="true">Fig. 1</span>
+            </a>
             <p class="pub-meta"><span class="venue">Findings of ACL, IJCNLP-AACL 2025</span><span class="first-author">First author</span></p>
             <h3 class="pub-title">Efficient Decoding Methods for Language Models on Encrypted Data</h3>
             <p class="pub-authors"><span class="me">Matan Avitan</span>, Moran Baruch, Nir Drucker, Itamar Zimerman, Yoav Goldberg</p>
@@ -143,7 +159,11 @@
               <li><a class="btn-link" href="https://aclanthology.org/2025.findings-ijcnlp.111/">Paper <span aria-hidden="true">↗</span></a></li>
             </ul>
           </li>
-          <li class="card pub">
+          <li class="card pub pub--side">
+            <a class="pub-fig" href="assets/figs/counterfactuals-1369.webp">
+              <img src="assets/figs/counterfactuals-800.webp" srcset="assets/figs/counterfactuals-800.webp 800w, assets/figs/counterfactuals-1369.webp 1369w" sizes="(max-width: 52rem) 18rem, 15rem" alt="Figure 1 of A Practical Method for Generating String Counterfactuals. An original biography and three counterfactual versions from the MiMiC, LEACE, and MiMiC+ interventions." width="800" height="1187" loading="lazy" decoding="async">
+              <span class="fig-tag" aria-hidden="true">Fig. 1</span>
+            </a>
             <p class="pub-meta"><span class="venue">Findings of ACL, NAACL 2025</span><span class="first-author">First author</span></p>
             <h3 class="pub-title">A Practical Method for Generating String Counterfactuals</h3>
             <p class="pub-authors"><span class="me">Matan Avitan</span>, Ryan Cotterell, Yoav Goldberg, Shauli Ravfogel</p>
@@ -282,5 +302,10 @@
     <p>Last updated November 2026.</p>
     <a href="#top">Back to top <span aria-hidden="true">↑</span></a>
   </footer>
+  <dialog class="lightbox" aria-label="Figure">
+    <button class="lightbox-close" type="button" aria-label="Close figure">×</button>
+    <img class="lightbox-img" src="data:," alt="">
+    <p class="lightbox-cap"></p>
+  </dialog>
 </body>
 </html>

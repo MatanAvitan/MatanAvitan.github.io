@@ -1,12 +1,11 @@
-// Theme switch, top bar state, active section link, and the portrait manifold.
+// Theme switch, top bar state, active section link, figure lightbox, and the hero portrait manifold.
 (function () {
   "use strict";
 
   var root = document.documentElement;
-  var mqDark = window.matchMedia("(prefers-color-scheme: dark)");
   var mqReduce = window.matchMedia("(prefers-reduced-motion: reduce)");
 
-  // ---- Theme ----
+  // ---- Theme: dark is the default, light only when the visitor picks it ----
 
   function storedTheme() {
     try {
@@ -27,11 +26,7 @@
     document.dispatchEvent(new Event("themechange"));
   }
 
-  applyTheme(storedTheme() || (mqDark.matches ? "dark" : "light"));
-
-  mqDark.addEventListener("change", function (e) {
-    if (!storedTheme()) applyTheme(e.matches ? "dark" : "light");
-  });
+  applyTheme(storedTheme() || "dark");
 
   if (toggle) {
     toggle.addEventListener("click", function () {
@@ -83,6 +78,76 @@
     });
   }
 
+  // ---- Figure 1 lightbox: a click on a paper figure opens it full size ----
+
+  var lightbox = document.querySelector(".lightbox");
+  if (lightbox && typeof lightbox.showModal === "function") {
+    var lightboxImg = lightbox.querySelector(".lightbox-img");
+    var lightboxCap = lightbox.querySelector(".lightbox-cap");
+    Array.prototype.forEach.call(document.querySelectorAll(".pub-fig"), function (link) {
+      link.addEventListener("click", function (e) {
+        if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+        e.preventDefault();
+        var thumb = link.querySelector("img");
+        var title = link.closest(".pub").querySelector(".pub-title");
+        lightboxImg.src = link.href;
+        lightboxImg.alt = thumb ? thumb.alt : "";
+        lightboxCap.textContent = "Figure 1 · " + (title ? title.textContent : "");
+        lightbox.showModal();
+      });
+    });
+    lightbox.querySelector(".lightbox-close").addEventListener("click", function () {
+      lightbox.close();
+    });
+    // A click on the backdrop lands on the dialog itself.
+    lightbox.addEventListener("click", function (e) {
+      if (e.target === lightbox) lightbox.close();
+    });
+  }
+
+  // ---- Hero portrait: center it at the upper right of the tree ----
+  // The photo uses object-fit: cover, so the tree moves with the window shape.
+  // The values are the upper-right corner of the tree crown, as fractions of each crop.
+
+  var hero = document.querySelector(".hero");
+  var heroImg = document.querySelector(".hero-photo img");
+  var heroOrbit = document.querySelector(".hero .orbit");
+  var mqNarrow = window.matchMedia("(max-width: 52rem)");
+  var CROPS = {
+    wide: { aspect: 1600 / 1296, x: 0.876, y: 0.384 },
+    square: { aspect: 1, x: 0.693, y: 0.385 }
+  };
+
+  function placeOrbit() {
+    var h = hero.getBoundingClientRect();
+    var b = heroImg.getBoundingClientRect();
+    if (!b.width || !b.height) return;
+    var crop = mqNarrow.matches ? CROPS.square : CROPS.wide;
+    var pos = getComputedStyle(heroImg).objectPosition.split(" ").map(parseFloat);
+    var s = Math.max(b.width / crop.aspect, b.height);
+    var rw = crop.aspect * s;
+    var rh = s;
+    var x = b.left - h.left + (b.width - rw) * (pos[0] / 100) + crop.x * rw;
+    var y = b.top - h.top + (b.height - rh) * (pos[1] / 100) + crop.y * rh;
+    var size = heroOrbit.offsetWidth;
+    var top = parseFloat(getComputedStyle(hero).paddingTop) || 0;
+    var cx = Math.min(x + 0.2 * size, h.width - size / 2 - 8);
+    var cy = Math.max(y - 0.25 * size, top + size / 2 + 8);
+    heroOrbit.style.setProperty("--orbit-x", cx.toFixed(1) + "px");
+    heroOrbit.style.setProperty("--orbit-y", cy.toFixed(1) + "px");
+    heroOrbit.classList.add("placed");
+  }
+
+  if (hero && heroImg && heroOrbit) {
+    placeOrbit();
+    mqNarrow.addEventListener("change", placeOrbit);
+    if ("ResizeObserver" in window) {
+      new ResizeObserver(placeOrbit).observe(hero);
+    } else {
+      window.addEventListener("resize", placeOrbit);
+    }
+  }
+
   // ---- Portrait manifold ----
   // Points on a Swiss roll, seen along its axis, so the roll forms a spiral
   // around the portrait. The roll turns slowly and tilts toward the pointer.
@@ -116,6 +181,11 @@
     var cs = getComputedStyle(root);
     colorA = parseHex(cs.getPropertyValue("--accent"), colorA);
     colorB = parseHex(cs.getPropertyValue("--accent-2"), colorB);
+    // In dark mode the dimmed sunset sky is close to the accent colors, so lighten the points.
+    if (root.dataset.theme === "dark") {
+      colorA = colorA.map(function (v) { return Math.round(v + (255 - v) * 0.45); });
+      colorB = colorB.map(function (v) { return Math.round(v + (255 - v) * 0.45); });
+    }
     points.forEach(function (p) {
       var r = Math.round(colorA[0] + (colorB[0] - colorA[0]) * p.c);
       var g = Math.round(colorA[1] + (colorB[1] - colorA[1]) * p.c);
