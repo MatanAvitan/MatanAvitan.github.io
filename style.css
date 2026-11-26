@@ -678,6 +678,12 @@ main {
   color: var(--on-accent);
 }
 
+/* Outlined chip, for co-authored papers. The outline is neutral. */
+.chip-outlined {
+  border: 1px solid color-mix(in srgb, var(--fg) 30%, transparent);
+  background: transparent;
+}
+
 .pub-title {
   margin: 0;
   font-size: 1.15rem;
